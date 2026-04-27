@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>UB Week 9 Facilitator App — Google Connected</title>
+<title>UB Week 9 Facilitator App — Stable Bilingual Analytics</title>
 <style>
 :root{--bg:#f7f5ef;--card:#fffdf8;--ink:#24211d;--muted:#6f675d;--line:#ded6c9;--accent:#8b5e34;--accent2:#2f5f73;--soft:#efe7db;--green:#356b4f;--red:#8a3a32}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
 header{background:#15120d;color:#fff;padding:24px 28px;border-bottom:6px solid var(--accent)}header h1{margin:0;font-size:26px}header p{margin:6px 0 0;color:#d9d1c5}
 .wrap{display:grid;grid-template-columns:310px 1fr;gap:18px;padding:18px;max-width:1550px;margin:0 auto}
 nav{position:sticky;top:14px;align-self:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
-button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;margin:5px 0;cursor:pointer;color:var(--ink);font-weight:700}nav button{width:100%;text-align:left}button:hover,button.active{background:var(--soft);border-color:var(--accent)}main{min-width:0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:18px;box-shadow:0 10px 28px rgba(0,0,0,.045)}
+button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;margin:5px 0;cursor:pointer;color:var(--ink);font-weight:700}nav button{width:100%;text-align:left}button:hover,button.active{background:var(--soft);border-color:var(--accent)}
+main{min-width:0}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:18px;box-shadow:0 10px 28px rgba(0,0,0,.045)}
 .day{font-weight:800;margin:10px 0 6px;color:var(--accent2)}.sub,.mini{color:var(--muted);font-size:13px}.pill,.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 9px;background:#fff;color:var(--muted);font-size:12px;margin:2px 4px 2px 0}
 .qa{border-left:4px solid var(--accent2);padding:10px 12px;background:#f4f8f9;border-radius:10px;margin:10px 0}.fac{border-left-color:var(--green);background:#f2f7f4}.warn{border-left-color:var(--red);background:#fbf1ef}.q{font-weight:800}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -19,195 +19,175 @@ textarea,input,select{width:100%;border:1px solid var(--line);border-radius:12px
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.toolbar button{width:auto;text-align:center}
 .table{width:100%;border-collapse:collapse;margin-top:10px}.table th,.table td{border:1px solid var(--line);padding:9px;vertical-align:top}.table th{background:var(--soft)}
 .scorebar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:8px 0}.scorebtn{text-align:center;width:100%}.selected{background:var(--soft);outline:3px solid rgba(139,94,52,.25)}
-.answer-card{border:1px solid var(--line);border-radius:16px;background:#fff;margin:12px 0;padding:14px}
-.answer-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.answer-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.status{padding:10px 12px;border-radius:12px;background:var(--soft);margin:10px 0}
-@media(max-width:950px){.wrap{grid-template-columns:1fr}nav{position:relative;top:auto}.grid,.grid4,.two,.answer-body{grid-template-columns:1fr}}
-
-.levelbar{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin:6px 0}
-.levelbar span{display:block;height:100%;background:var(--accent2)}
-.analytics-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.analytics-box{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff}
-.feedback-item{border-left:4px solid var(--green);background:#f2f7f4;border-radius:10px;padding:10px 12px;margin:10px 0}
+.answer-card{border:1px solid var(--line);border-radius:16px;background:#fff;margin:12px 0;padding:14px}.answer-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.answer-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.status{padding:10px 12px;border-radius:12px;background:var(--soft);margin:10px 0}.empty{border:1px dashed var(--line);border-radius:18px;padding:22px;background:#fff;text-align:left}
+.levelbar{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin:6px 0}.levelbar span{display:block;height:100%;background:var(--accent2)}
+.analytics-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.analytics-box{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff}.feedback-item{border-left:4px solid var(--green);background:#f2f7f4;border-radius:10px;padding:10px 12px;margin:10px 0}
+@media(max-width:950px){.wrap{grid-template-columns:1fr}nav{position:relative;top:auto}.grid,.grid4,.two,.answer-body,.analytics-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <h1>Understanding the Bible — Week 9 Facilitator App</h1>
-  <p id="subtitle">Google-connected professor companion · live student submissions · E1–E7 · H1–H5 · real-time scoring</p>
-</header>
+<header><h1 id="appTitle"></h1><p id="subtitle"></p></header>
 <div class="wrap">
 <nav>
   <div class="toolbar"><button onclick="setLang('en')" id="enBtn" class="active">English</button><button onclick="setLang('ko')" id="koBtn">한국어</button></div>
-  <div class="sub" id="classRhythm"><strong>Class Rhythm</strong><br>Tuesday: Mark + Matthew · Friday: Luke + John</div>
-  <div class="day" id="tuesdayLabel">Tuesday Texts</div><div id="tuesday"></div>
-  <div class="day" id="fridayLabel">Friday Texts</div><div id="friday"></div>
-  <div class="toolbar"><button onclick="window.print()" id="printBtn">Print</button><button onclick="downloadSnapshot()" id="downloadBtn">Download Snapshot</button></div>
+  <div class="sub" id="classRhythm"></div>
+  <div class="day" id="tuesdayLabel"></div><div id="tuesday"></div>
+  <div class="day" id="fridayLabel"></div><div id="friday"></div>
+  <div class="toolbar"><button onclick="window.print()" id="printBtn"></button><button onclick="downloadSnapshot()" id="downloadBtn"></button></div>
 </nav>
 <main>
 <section class="card">
   <h2 id="title"></h2><div id="theme" class="sub"></div><div id="tags"></div>
-  <h3 id="aimLabel">Facilitator Aim</h3><p id="aim"></p>
-  <h3 id="modelLabel">Model Integrated Sentence</h3><div id="model" class="qa"></div>
+  <h3 id="aimLabel"></h3><p id="aim"></p>
+  <h3 id="modelLabel"></h3><div id="model" class="qa"></div>
 </section>
 
 <section class="card">
-  <h2 id="dashboardTitle">Google Sheet Live Dashboard</h2>
-  <div class="qa fac"><div class="q" id="connectionLabel">Connection</div><div id="connectionText">Student answers submitted from the GitHub/HDLMS active learning app are loaded from the same Google Sheet through Apps Script.</div></div>
+  <h2 id="dashboardTitle"></h2>
+  <div class="qa fac"><div class="q" id="connectionLabel"></div><div id="connectionText"></div></div>
   <div class="toolbar">
-    <button onclick="loadSubmissions()" id="loadBtn">Load / Refresh Student Answers</button>
-    <button onclick="toggleAutoRefresh()" id="autoBtn">Toggle Auto Refresh</button>
+    <button onclick="loadSubmissions()" id="loadBtn"></button>
+    <button onclick="toggleAutoRefresh()" id="autoBtn"></button>
   </div>
   <div class="grid">
-    <div><label id="filterTextLabel">Filter by Text</label><select id="filterText" onchange="renderSubmissions()"><option value="">All texts</option></select></div>
-    <div><label id="filterGroupLabel">Filter by Group</label><input id="filterGroup" oninput="renderSubmissions()" placeholder="e.g., 3A, Tuesday-2" data-ph-en="e.g., 3A, Tuesday-2" data-ph-ko="예: 3A, 화요일-2" /></div>
-    <div><label id="filterStudentLabel">Filter by Student</label><input id="filterStudent" oninput="renderSubmissions()" placeholder="Name or ID" data-ph-en="Name or ID" data-ph-ko="이름 또는 학번" /></div>
+    <div><label id="filterTextLabel"></label><select id="filterText" onchange="renderSubmissions()"><option value=""></option></select></div>
+    <div><label id="filterGroupLabel"></label><input id="filterGroup" oninput="renderSubmissions()" /></div>
+    <div><label id="filterStudentLabel"></label><input id="filterStudent" oninput="renderSubmissions()" /></div>
   </div>
-  <div id="liveStatus" class="status">Not loaded yet.</div>
+  <div id="liveStatus" class="status"></div>
   <div id="submissions"></div>
 </section>
 
-<section class="card"><h2 id="coreTitle">Core Question Answers + '+UI[LANG].profNote+'s</h2><div id="core"></div></section>
-<section class="card"><h2 id="protocolTitle">E1–E7 Exegetical Mapping + H1–H5 Hermeneutical Bridge</h2><div id="protocols"></div></section>
-<section class="card"><h2 id="scoringTitle">Real-Time Scoring Layer</h2><div id="scoring"></div><div class="toolbar"><button onclick="resetScoresForText()" id="resetScoreBtn">Reset Current Text Scores</button><button onclick="copyScores()" id="copyScoreBtn">Copy Score Snapshot</button></div></section>
-<section class="card"><h2 id="abTitle">Tuesday A/B Group Protocol</h2><div class="qa fac"><div class="q" id="abStructureLabel">A/B Structure</div><div><strong>A Group</strong> stays inside the text and answers the exegetical question. <strong>B Group</strong> compares AI-assisted answers, translates them into student language, and produces a converged hermeneutical answer. The integration step resolves the tension into one claim.</div></div><div class="qa warn"><div class="q">Language Transformation Diagnostic</div><div>Repeating AI wording indicates data possession. Paraphrasing indicates surface understanding. Reframing with examples and structure indicates internalization. Integration indicates formation-level movement.</div></div></section>
-<section class="card"><h2 id="movementTitle">Group Integration + Movement Map</h2><div id="movement"></div></section>
-<section class="card"><h2 id="praxisTitle">Covenantal Praxis + Failure Loop</h2><div id="praxis"></div></section>
-</main>
-</div>
-<script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzbKDZDj_GeqGaxseNaXDoOLD3eYogzuzXreOrDfmlawTqGXyjTYo4uUer5RwpD-cGP/exec';
-const TEXTS = [{"day": "Tuesday", "id": "T1", "ref": "Mark 1:1–8", "focus": "Mark 1:1", "theme": "Gospel beginning, wilderness witness, Jesus’ identity, and the opening movement of discipleship.", "tags": ["beginning", "good news", "wilderness", "witness", "identity"], "model": "Mark opens the Gospel through wilderness witness so that readers learn Jesus’ identity through proclamation, preparation, and movement toward the cross.", "aim": "Guide students to see Mark as proclamation, not simple biography: Jesus’ identity is disclosed through wilderness preparation, prophetic witness, and a story moving toward cruciform discipleship.", "exeQ": "How does Mark 1:1 frame the whole Gospel as proclamation of Jesus’ identity rather than merely as a biography of Jesus?", "exeA": "Mark 1:1 functions like a programmatic title: the story is “good news” concerning Jesus Christ, the Son of God. Mark begins with proclamation, Scripture-shaped preparation, and wilderness witness, so the Gospel is an announcement that demands recognition and response.", "herQ": "How does Mark’s wilderness beginning invite us to rethink where true good news begins today?", "herA": "Mark challenges the assumption that good news begins at the center of power. It begins in wilderness space, where false securities are stripped away and a new path is prepared.", "intQ": "How can Mark’s proclamation of Jesus’ identity reshape the way we locate, announce, and embody good news in places that feel like wilderness?", "intA": "Mark teaches that wilderness spaces are not abandoned places but places where God prepares a new beginning, calls people to repentance, and announces Jesus through faithful witness."}, {"day": "Tuesday", "id": "T2", "ref": "Mark 10:35–45", "focus": "Mark 10:45", "theme": "Cruciform discipleship, service, ransom, and reversal of status.", "tags": ["service", "ransom", "greatness", "cross", "reversal"], "model": "Mark redefines greatness through Jesus’ self-giving service so that disciples move from status-seeking to cruciform participation in God’s liberating work.", "aim": "Help students connect the disciples’ ambition with Jesus’ redefinition of power through service and ransom.", "exeQ": "How does Mark 10:45 interpret Jesus’ mission and correct the disciples’ desire for status?", "exeA": "Mark 10:45 presents Jesus as the Son of Man who serves rather than dominates and gives his life as a ransom for many. His mission corrects the disciples’ honor-seeking by making costly service the pattern of discipleship.", "herQ": "How does Jesus’ definition of greatness challenge modern systems of power, success, and leadership?", "herA": "The passage challenges success built on visibility, control, privilege, and hierarchy. It calls communities to evaluate leadership by whether it serves and liberates others.", "intQ": "How should Jesus’ self-giving service reshape Christian practice in classrooms, churches, and public life?", "intA": "Christian practice should move from status protection to concrete service: listening before leading, using authority to restore others, and measuring formation by who is dignified through our action."}, {"day": "Tuesday", "id": "T3", "ref": "Matthew 1:1–17", "focus": "Genealogy", "theme": "Genealogy, Israel’s story, fulfillment, and covenant memory.", "tags": ["genealogy", "Abraham", "David", "exile", "fulfillment"], "model": "Matthew begins with genealogy to locate Jesus within Israel’s covenant memory while showing that God’s promise moves through surprising people, broken history, and restored hope.", "aim": "Guide students to read genealogy as theological narrative, not background data.", "exeQ": "How does Matthew’s genealogy frame Jesus within Israel’s covenant story?", "exeA": "Matthew identifies Jesus as Messiah, son of David, son of Abraham. The genealogy structures Israel’s story through Abraham, David, exile, and Messiah, presenting Jesus as covenant fulfillment and royal hope.", "herQ": "How does Matthew’s genealogy challenge modern assumptions about worth, purity, and belonging?", "herA": "The genealogy resists sanitized identity. God’s redemptive history includes outsiders, morally complex stories, women whose presence disrupts control, and memories of exile.", "intQ": "How can covenant memory form communities that remember honestly and welcome faithfully?", "intA": "Matthew invites communities to remember histories truthfully, including rupture and shame, while trusting that God forms belonging through promise, mercy, and restored vocation."}, {"day": "Tuesday", "id": "T4", "ref": "Matthew 5:1–12", "focus": "Beatitudes", "theme": "Kingdom righteousness, blessing, formation, mercy, and peacemaking.", "tags": ["blessing", "kingdom", "righteousness", "mercy", "peace"], "model": "Matthew’s Beatitudes announce the kingdom’s blessing upon those formed by humility, mercy, righteousness, and peacemaking, thereby redefining the shape of covenant life.", "aim": "Move students away from reading the Beatitudes as abstract virtues only and toward kingdom formation.", "exeQ": "How do the Beatitudes describe the people formed by the kingdom of heaven?", "exeA": "The Beatitudes name those poor in spirit, mourning, hungering for righteousness, showing mercy, making peace, and enduring persecution. Together they portray a community shaped by God’s reign and covenant righteousness.", "herQ": "How do the Beatitudes disrupt modern ideas of happiness, success, and strength?", "herA": "They reverse assumptions that blessing belongs to the powerful, comfortable, admired, or self-secure. Jesus names as blessed those open to God and oriented toward righteousness.", "intQ": "How can the Beatitudes reshape formation in Christian education and community life?", "intA": "They call communities to form people not merely for achievement but for mercy, peacemaking, justice-seeking, humility, and endurance under pressure."}, {"day": "Tuesday", "id": "T5", "ref": "Matthew 28:16–20", "focus": "Great Commission", "theme": "Mission, teaching, authority, all nations, and Jesus’ abiding presence.", "tags": ["mission", "discipleship", "authority", "nations", "presence"], "model": "Matthew concludes with Jesus’ universal authority and abiding presence so that discipleship becomes a teaching mission among all nations.", "aim": "Help students see mission as disciple-making obedience under Jesus’ presence, not expansion alone.", "exeQ": "How does Matthew 28:16–20 conclude Matthew’s Gospel and define the church’s mission?", "exeA": "The risen Jesus claims all authority, sends disciples to all nations, commands baptism and teaching, and promises his presence. The conclusion gathers Emmanuel, kingdom authority, obedience, and mission.", "herQ": "How does this commission correct modern distortions of mission?", "herA": "It corrects mission as conquest, branding, or numerical expansion. The task is disciple-making through teaching obedience to Jesus under his authority and presence.", "intQ": "How should Jesus’ authority and presence shape teaching, mission, and formation today?", "intA": "Mission should form learners who embody Jesus’ teaching, cross cultural boundaries responsibly, and depend on Christ’s abiding presence rather than institutional control."}, {"day": "Friday", "id": "F1", "ref": "Luke 4:16–21", "focus": "Nazareth sermon", "theme": "Spirit, release, reversal, restoration, and mission to the margins.", "tags": ["Spirit", "release", "poor", "captives", "today"], "model": "Luke presents Jesus’ Spirit-anointed mission as release and restoration for the marginalized, making salvation visible as embodied liberation and renewed belonging.", "aim": "Guide students to read Luke’s salvation as concrete, social, relational, and Spirit-led.", "exeQ": "How does Luke 4:16–21 define Jesus’ mission at the beginning of his public ministry?", "exeA": "Jesus reads Isaiah as fulfilled today in his ministry. The Spirit-anointed mission brings good news to the poor, release to captives, sight to the blind, freedom to the oppressed, and the Lord’s favor.", "herQ": "How does Luke’s vision of release challenge spiritualized or individualistic readings of salvation?", "herA": "Luke does not separate spiritual renewal from embodied restoration. Salvation appears as release, healing, restored perception, and renewed social belonging.", "intQ": "How can Luke 4 reshape the church’s understanding of gospel proclamation and social responsibility?", "intA": "The church proclaims faithfully when its words and practices participate in Jesus’ Spirit-led release: restoring dignity, challenging oppression, and creating belonging for the marginalized."}, {"day": "Friday", "id": "F2", "ref": "Luke 15:11–32", "focus": "Lost sons", "theme": "Mercy, return, resentment, restored belonging, and shared joy.", "tags": ["mercy", "return", "resentment", "belonging", "joy"], "model": "Luke’s parable of the two sons reveals divine mercy as restored belonging while exposing resentment that refuses to rejoice in another’s return.", "aim": "Help students see both sons as lost in different ways and the father as the center of restored kinship.", "exeQ": "How does Luke 15:11–32 portray lostness, return, and restored belonging?", "exeA": "The younger son is lost through leaving and squandering; the older son is lost through resentment and refusal to enter joy. The father restores the younger and pleads with the older.", "herQ": "How does this parable expose resentment within religious communities?", "herA": "It reveals how communities can obey externally while refusing mercy. Resentment appears when another person’s restoration feels like a threat.", "intQ": "How should this parable reshape practices of repentance, welcome, and communal joy?", "intA": "Communities should practice repentance as return, welcome as restored dignity, and joy as shared participation in mercy rather than competition over worthiness."}, {"day": "Friday", "id": "F3", "ref": "John 1:1–18", "focus": "Prologue", "theme": "Logos, incarnation, light, witness, dwelling, glory, and life.", "tags": ["Logos", "incarnation", "light", "dwelling", "glory"], "model": "John’s prologue presents the incarnate Logos as God’s life and light dwelling among humanity so that witness leads readers into grace-filled recognition.", "aim": "Help students hold together high Christology and embodied incarnation.", "exeQ": "How does John 1:1–18 introduce Jesus’ identity and mission?", "exeA": "John identifies Jesus as the preexistent Logos who is with God and is God, through whom life and light come. The Logos becomes flesh and dwells among us, revealing glory, grace, and truth.", "herQ": "How does the incarnation challenge abstract or disembodied views of faith?", "herA": "The Word becomes flesh, so faith cannot remain abstract, detached, or merely conceptual. God’s revelation takes bodily, relational, and historical form.", "intQ": "How can John’s Logos theology shape learning, witness, and community formation?", "intA": "Learning and witness should move from abstract claims to embodied presence: receiving light, practicing truthful grace, and becoming communities where God’s life is visible."}, {"day": "Friday", "id": "F4", "ref": "John 13:1–17, 34–35", "focus": "Footwashing and love command", "theme": "Love, service, embodied humility, mutual recognition, and community identity.", "tags": ["love", "service", "humility", "footwashing", "identity"], "model": "John portrays Jesus’ love through embodied humility so that the community’s identity becomes recognizable through mutual service and self-giving love.", "aim": "Guide students to see love as enacted service that reveals communal identity.", "exeQ": "How does John 13 define Jesus’ love and the disciples’ identity?", "exeA": "Jesus loves to the end by washing his disciples’ feet, taking the servant’s role before the cross. The community is recognized not by status markers but by embodied mutual love.", "herQ": "How does footwashing challenge modern Christian identity markers?", "herA": "It challenges identity based on reputation, doctrinal performance, charisma, or institutional power. John centers humble service as the visible mark of belonging to Jesus.", "intQ": "How should Jesus’ embodied humility reshape leadership and community practice?", "intA": "Leadership should take the lower place, perform concrete acts of service, and create communities where mutual care becomes the public sign of discipleship."}, {"day": "Friday", "id": "F5", "ref": "John 20:30–31", "focus": "Purpose statement", "theme": "Belief, life, written witness, signs, and reader response.", "tags": ["belief", "life", "signs", "witness", "reader"], "model": "John writes selected signs so that readers may believe Jesus is the Messiah, the Son of God, and receive life in his name.", "aim": "Help students understand John as written witness designed for reader transformation.", "exeQ": "How does John 20:30–31 explain the purpose of the Gospel?", "exeA": "John states that many signs were not written, but these were written so readers may believe Jesus is the Messiah, the Son of God, and have life in his name.", "herQ": "How does John’s purpose statement challenge passive reading of Scripture?", "herA": "John expects readers to respond. Scripture is not merely information storage; it is written witness that calls for recognition, trust, and participation in life.", "intQ": "How can John’s written witness shape the way students read, teach, and embody Scripture?", "intA": "Students should read Scripture as testimony that invites response, teach it toward life-giving recognition of Jesus, and embody its witness through practices that make life visible."}];
+<section class="card">
+  <h2 id="analyticsTitle"></h2>
+  <div class="qa fac"><div class="q" id="analyticsPurpose"></div><div id="analyticsPurposeText"></div></div>
+  <div class="toolbar"><button onclick="runAutoAnalysis()" id="analyzeBtn"></button><button onclick="copyAutoFeedback()" id="copyFeedbackBtn"></button></div>
+  <div id="autoSummary"></div><div id="groupVisualization"></div><div id="autoFeedback"></div>
+</section>
 
+<section class="card"><h2 id="coreTitle"></h2><div id="core"></div></section>
+<section class="card"><h2 id="protocolTitle"></h2><div id="protocols"></div></section>
+<section class="card"><h2 id="scoringTitle"></h2><div id="scoring"></div><div class="toolbar"><button onclick="resetScoresForText()" id="resetScoreBtn"></button><button onclick="copyScores()" id="copyScoreBtn"></button></div></section>
+<section class="card"><h2 id="abTitle"></h2><div class="qa fac"><div class="q" id="abStructureLabel"></div><div id="abStructureText"></div></div><div class="qa warn"><div class="q" id="diagnosticLabel"></div><div id="diagnosticText"></div></div></section>
+<section class="card"><h2 id="movementTitle"></h2><div id="movement"></div></section>
+<section class="card"><h2 id="praxisTitle"></h2><div id="praxis"></div></section>
+</main></div>
+
+<script>
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbKDZDj_GeqGaxseNaXDoOLD3eYogzuzXreOrDfmlawTqGXyjTYo4uUer5RwpD-cGP/exec";
+const TEXTS = [{"day": "Tuesday", "id": "T1", "ref": "Mark 1:1–8", "refKo": "마가복음 1:1–8", "focus": "Mark 1:1", "focusKo": "마가복음 1:1", "theme": "Gospel beginning, wilderness witness, Jesus’ identity, and the opening movement of discipleship.", "themeKo": "복음의 시작, 광야의 증언, 예수의 정체성, 제자도의 시작 움직임.", "tags": ["beginning", "good news", "wilderness", "witness", "identity"], "tagsKo": ["시작", "복음", "광야", "증언", "정체성"], "model": "Mark opens the Gospel through wilderness witness so that readers learn Jesus’ identity through proclamation, preparation, and movement toward the cross.", "modelKo": "마가는 광야의 증언을 통해 복음을 시작함으로써 독자들이 선포, 준비, 십자가를 향한 움직임 속에서 예수의 정체성을 배우게 한다.", "aim": "Guide students to see Mark as proclamation, not simple biography: Jesus’ identity is disclosed through wilderness preparation, prophetic witness, and a story moving toward cruciform discipleship.", "aimKo": "학생들이 마가복음을 단순한 전기가 아니라 선포로 보게 하라. 예수의 정체성은 광야의 준비, 예언자적 증언, 십자가형 제자도를 향한 이야기 속에서 드러난다.", "exeQ": "How does Mark 1:1 frame the whole Gospel as proclamation of Jesus’ identity rather than merely as a biography of Jesus?", "exeQKo": "마가복음 1:1은 복음서 전체를 예수에 관한 단순 전기가 아니라 예수의 정체성에 대한 선포로 어떻게 구성하는가?", "exeA": "Mark 1:1 functions like a programmatic title: the story is “good news” concerning Jesus Christ, the Son of God. Mark begins with proclamation, Scripture-shaped preparation, and wilderness witness, so the Gospel is an announcement that demands recognition and response.", "exeAKo": "마가복음 1:1은 프로그램적 제목처럼 기능한다. 이 이야기는 하나님의 아들 예수 그리스도에 관한 ‘복음’이다. 마가는 선포, 성경에 의해 형성된 준비, 광야의 증언으로 시작함으로써 복음이 인식과 응답을 요구하는 선포임을 보여준다.", "herQ": "How does Mark’s wilderness beginning invite us to rethink where true good news begins today?", "herQKo": "마가의 광야 시작은 오늘 참된 복음이 어디에서 시작되는지를 어떻게 다시 생각하게 하는가?", "herA": "Mark challenges the assumption that good news begins at the center of power. It begins in wilderness space, where false securities are stripped away and a new path is prepared.", "herAKo": "마가는 복음이 권력의 중심에서 시작된다는 전제를 흔든다. 복음은 거짓 안전이 벗겨지고 새로운 길이 준비되는 광야 공간에서 시작된다.", "intQ": "How can Mark’s proclamation of Jesus’ identity reshape the way we locate, announce, and embody good news in places that feel like wilderness?", "intQKo": "마가의 예수 정체성 선포는 광야처럼 느껴지는 장소에서 우리가 복음을 위치시키고 선포하고 구현하는 방식을 어떻게 새롭게 하는가?", "intA": "Mark teaches that wilderness spaces are not abandoned places but places where God prepares a new beginning, calls people to repentance, and announces Jesus through faithful witness.", "intAKo": "마가는 광야 공간이 버려진 장소가 아니라 하나님이 새로운 시작을 준비하시고 회개로 부르시며 신실한 증언을 통해 예수를 선포하시는 장소임을 가르친다."}, {"day": "Tuesday", "id": "T2", "ref": "Mark 10:35–45", "refKo": "마가복음 10:35–45", "focus": "Mark 10:45", "focusKo": "마가복음 10:45", "theme": "Cruciform discipleship, service, ransom, and reversal of status.", "themeKo": "십자가형 제자도, 섬김, 대속, 지위의 역전.", "tags": ["service", "ransom", "greatness", "cross", "reversal"], "tagsKo": ["섬김", "대속", "위대함", "십자가", "역전"], "model": "Mark redefines greatness through Jesus’ self-giving service so that disciples move from status-seeking to cruciform participation in God’s liberating work.", "modelKo": "마가는 예수의 자기 내어주는 섬김을 통해 위대함을 재정의하여 제자들이 지위 추구에서 하나님의 해방 사역에 참여하는 십자가형 제자도로 이동하게 한다.", "aim": "Help students connect the disciples’ ambition with Jesus’ redefinition of power through service and ransom.", "aimKo": "학생들이 제자들의 야망과 섬김과 대속을 통한 예수의 권력 재정의를 연결하도록 돕는다.", "exeQ": "How does Mark 10:45 interpret Jesus’ mission and correct the disciples’ desire for status?", "exeQKo": "마가복음 10:45는 예수의 사명을 어떻게 해석하며 제자들의 지위 욕망을 어떻게 교정하는가?", "exeA": "Mark 10:45 presents Jesus as the Son of Man who serves rather than dominates and gives his life as a ransom for many. His mission corrects the disciples’ honor-seeking by making costly service the pattern of discipleship.", "exeAKo": "마가복음 10:45는 예수를 지배하는 자가 아니라 섬기는 인자로 제시하며, 많은 사람을 위한 대속물로 자기 생명을 내어주는 분으로 묘사한다. 예수의 사명은 값비싼 섬김을 제자도의 패턴으로 삼음으로써 제자들의 명예 추구를 교정한다.", "herQ": "How does Jesus’ definition of greatness challenge modern systems of power, success, and leadership?", "herQKo": "예수의 위대함 정의는 현대의 권력, 성공, 리더십 체계를 어떻게 도전하는가?", "herA": "The passage challenges success built on visibility, control, privilege, and hierarchy. It calls communities to evaluate leadership by whether it serves and liberates others.", "herAKo": "이 본문은 가시성, 통제, 특권, 위계 위에 세워진 성공 개념을 도전한다. 공동체는 리더십을 그것이 다른 사람을 섬기고 해방하는지에 따라 평가해야 한다.", "intQ": "How should Jesus’ self-giving service reshape Christian practice in classrooms, churches, and public life?", "intQKo": "예수의 자기 내어주는 섬김은 교실, 교회, 공적 삶에서 그리스도인의 실천을 어떻게 새롭게 해야 하는가?", "intA": "Christian practice should move from status protection to concrete service: listening before leading, using authority to restore others, and measuring formation by who is dignified through our action.", "intAKo": "그리스도인의 실천은 지위 보호에서 구체적 섬김으로 이동해야 한다. 이끄는 것보다 먼저 듣고, 권위를 타인을 회복하는 데 사용하며, 우리의 행동을 통해 누가 존엄을 회복하는지를 기준으로 형성을 평가해야 한다."}, {"day": "Tuesday", "id": "T3", "ref": "Matthew 1:1–17", "refKo": "마태복음 1:1–17", "focus": "Genealogy", "focusKo": "족보", "theme": "Genealogy, Israel’s story, fulfillment, and covenant memory.", "themeKo": "족보, 이스라엘의 이야기, 성취, 언약적 기억.", "tags": ["genealogy", "Abraham", "David", "exile", "fulfillment"], "tagsKo": ["족보", "아브라함", "다윗", "포로기", "성취"], "model": "Matthew begins with genealogy to locate Jesus within Israel’s covenant memory while showing that God’s promise moves through surprising people, broken history, and restored hope.", "modelKo": "마태는 족보로 시작하여 예수를 이스라엘의 언약적 기억 안에 위치시키며, 하나님의 약속이 뜻밖의 사람들, 깨어진 역사, 회복된 소망을 통해 움직인다는 것을 보여준다.", "aim": "Guide students to read genealogy as theological narrative, not background data.", "aimKo": "학생들이 족보를 단순 배경 자료가 아니라 신학적 서사로 읽도록 인도한다.", "exeQ": "How does Matthew’s genealogy frame Jesus within Israel’s covenant story?", "exeQKo": "마태의 족보는 예수를 이스라엘의 언약 이야기 안에서 어떻게 구성하는가?", "exeA": "Matthew identifies Jesus as Messiah, son of David, son of Abraham. The genealogy structures Israel’s story through Abraham, David, exile, and Messiah, presenting Jesus as covenant fulfillment and royal hope.", "exeAKo": "마태는 예수를 메시아, 다윗의 자손, 아브라함의 자손으로 제시한다. 족보는 아브라함, 다윗, 포로기, 메시아를 통해 이스라엘의 이야기를 구조화하며 예수를 언약 성취와 왕적 소망으로 제시한다.", "herQ": "How does Matthew’s genealogy challenge modern assumptions about worth, purity, and belonging?", "herQKo": "마태의 족보는 가치, 순수성, 소속에 대한 현대적 전제를 어떻게 도전하는가?", "herA": "The genealogy resists sanitized identity. God’s redemptive history includes outsiders, morally complex stories, women whose presence disrupts control, and memories of exile.", "herAKo": "이 족보는 정화된 정체성 서사를 거부한다. 하나님의 구속사는 외부자, 도덕적으로 복잡한 이야기, 통제를 흔드는 여성들, 포로기의 기억을 포함한다.", "intQ": "How can covenant memory form communities that remember honestly and welcome faithfully?", "intQKo": "언약적 기억은 공동체가 정직하게 기억하고 신실하게 환대하도록 어떻게 형성하는가?", "intA": "Matthew invites communities to remember histories truthfully, including rupture and shame, while trusting that God forms belonging through promise, mercy, and restored vocation.", "intAKo": "마태는 공동체가 파열과 수치를 포함한 역사를 진실하게 기억하면서도 하나님이 약속, 긍휼, 회복된 소명을 통해 소속을 형성하신다는 것을 신뢰하도록 초대한다."}, {"day": "Tuesday", "id": "T4", "ref": "Matthew 5:1–12", "refKo": "마태복음 5:1–12", "focus": "Beatitudes", "focusKo": "팔복", "theme": "Kingdom righteousness, blessing, formation, mercy, and peacemaking.", "themeKo": "하나님 나라의 의, 복, 형성, 긍휼, 화평케 함.", "tags": ["blessing", "kingdom", "righteousness", "mercy", "peace"], "tagsKo": ["복", "나라", "의", "긍휼", "평화"], "model": "Matthew’s Beatitudes announce the kingdom’s blessing upon those formed by humility, mercy, righteousness, and peacemaking, thereby redefining the shape of covenant life.", "modelKo": "마태의 팔복은 겸손, 긍휼, 의, 화평케 함으로 형성된 사람들에게 임하는 하나님 나라의 복을 선포하며 언약적 삶의 형상을 재정의한다.", "aim": "Move students away from reading the Beatitudes as abstract virtues only and toward kingdom formation.", "aimKo": "학생들이 팔복을 추상적 덕목으로만 읽는 데서 벗어나 하나님 나라 형성으로 읽도록 돕는다.", "exeQ": "How do the Beatitudes describe the people formed by the kingdom of heaven?", "exeQKo": "팔복은 하늘나라에 의해 형성된 사람들을 어떻게 묘사하는가?", "exeA": "The Beatitudes name those poor in spirit, mourning, hungering for righteousness, showing mercy, making peace, and enduring persecution. Together they portray a community shaped by God’s reign and covenant righteousness.", "exeAKo": "팔복은 심령이 가난한 자, 애통하는 자, 의에 주리고 목마른 자, 긍휼히 여기는 자, 화평케 하는 자, 박해를 견디는 자를 말한다. 이들은 함께 하나님의 통치와 언약적 의에 의해 형성된 공동체를 묘사한다.", "herQ": "How do the Beatitudes disrupt modern ideas of happiness, success, and strength?", "herQKo": "팔복은 행복, 성공, 힘에 대한 현대적 생각을 어떻게 흔드는가?", "herA": "They reverse assumptions that blessing belongs to the powerful, comfortable, admired, or self-secure. Jesus names as blessed those open to God and oriented toward righteousness.", "herAKo": "팔복은 복이 강한 자, 편안한 자, 인정받는 자, 자기 확신에 찬 자에게 속한다는 전제를 역전시킨다. 예수는 하나님께 열려 있고 의를 향하는 자들을 복되다 하신다.", "intQ": "How can the Beatitudes reshape formation in Christian education and community life?", "intQKo": "팔복은 기독교 교육과 공동체 삶의 형성을 어떻게 새롭게 하는가?", "intA": "They call communities to form people not merely for achievement but for mercy, peacemaking, justice-seeking, humility, and endurance under pressure.", "intAKo": "팔복은 공동체가 사람들을 단순한 성취가 아니라 긍휼, 화평케 함, 정의 추구, 겸손, 압박 속 인내로 형성하도록 부른다."}, {"day": "Tuesday", "id": "T5", "ref": "Matthew 28:16–20", "refKo": "마태복음 28:16–20", "focus": "Great Commission", "focusKo": "대위임령", "theme": "Mission, teaching, authority, all nations, and Jesus’ abiding presence.", "themeKo": "선교, 가르침, 권위, 모든 민족, 예수의 지속적 임재.", "tags": ["mission", "discipleship", "authority", "nations", "presence"], "tagsKo": ["선교", "제자도", "권위", "민족들", "임재"], "model": "Matthew concludes with Jesus’ universal authority and abiding presence so that discipleship becomes a teaching mission among all nations.", "modelKo": "마태는 예수의 보편적 권위와 지속적 임재로 결론을 맺어 제자도가 모든 민족 가운데 가르치는 사명이 되게 한다.", "aim": "Help students see mission as disciple-making obedience under Jesus’ presence, not expansion alone.", "aimKo": "학생들이 선교를 단순 확장이 아니라 예수의 임재 아래 제자를 만드는 순종으로 보게 한다.", "exeQ": "How does Matthew 28:16–20 conclude Matthew’s Gospel and define the church’s mission?", "exeQKo": "마태복음 28:16–20은 마태복음을 어떻게 결론짓고 교회의 사명을 어떻게 정의하는가?", "exeA": "The risen Jesus claims all authority, sends disciples to all nations, commands baptism and teaching, and promises his presence. The conclusion gathers Emmanuel, kingdom authority, obedience, and mission.", "exeAKo": "부활하신 예수는 모든 권위를 선언하시고 제자들을 모든 민족에게 보내시며 세례와 가르침을 명하시고 자신의 임재를 약속하신다. 이 결론은 임마누엘, 하나님 나라의 권위, 순종, 선교를 모은다.", "herQ": "How does this commission correct modern distortions of mission?", "herQKo": "이 위임은 현대 선교의 왜곡을 어떻게 교정하는가?", "herA": "It corrects mission as conquest, branding, or numerical expansion. The task is disciple-making through teaching obedience to Jesus under his authority and presence.", "herAKo": "이 본문은 선교를 정복, 브랜드 확장, 숫자 증가로 보는 왜곡을 교정한다. 사명은 예수의 권위와 임재 아래 그분께 순종하도록 가르치며 제자를 만드는 것이다.", "intQ": "How should Jesus’ authority and presence shape teaching, mission, and formation today?", "intQKo": "예수의 권위와 임재는 오늘 가르침, 선교, 형성을 어떻게 빚어야 하는가?", "intA": "Mission should form learners who embody Jesus’ teaching, cross cultural boundaries responsibly, and depend on Christ’s abiding presence rather than institutional control.", "intAKo": "선교는 예수의 가르침을 구현하고 문화적 경계를 책임 있게 넘으며 제도적 통제가 아니라 그리스도의 지속적 임재에 의존하는 학습자를 형성해야 한다."}, {"day": "Friday", "id": "F1", "ref": "Luke 4:16–21", "refKo": "누가복음 4:16–21", "focus": "Nazareth sermon", "focusKo": "나사렛 설교", "theme": "Spirit, release, reversal, restoration, and mission to the margins.", "themeKo": "성령, 해방, 역전, 회복, 주변부를 향한 사명.", "tags": ["Spirit", "release", "poor", "captives", "today"], "tagsKo": ["성령", "해방", "가난한 자", "포로", "오늘"], "model": "Luke presents Jesus’ Spirit-anointed mission as release and restoration for the marginalized, making salvation visible as embodied liberation and renewed belonging.", "modelKo": "누가는 예수의 성령 기름부음 받은 사명을 주변화된 이들의 해방과 회복으로 제시하며 구원을 몸으로 드러나는 해방과 새 소속으로 보이게 한다.", "aim": "Guide students to read Luke’s salvation as concrete, social, relational, and Spirit-led.", "aimKo": "학생들이 누가의 구원을 구체적이고 사회적이며 관계적이고 성령에 이끌린 것으로 읽도록 인도한다.", "exeQ": "How does Luke 4:16–21 define Jesus’ mission at the beginning of his public ministry?", "exeQKo": "누가복음 4:16–21은 예수의 공적 사역 시작에서 예수의 사명을 어떻게 정의하는가?", "exeA": "Jesus reads Isaiah as fulfilled today in his ministry. The Spirit-anointed mission brings good news to the poor, release to captives, sight to the blind, freedom to the oppressed, and the Lord’s favor.", "exeAKo": "예수는 이사야의 말씀이 자신의 사역 안에서 ‘오늘’ 성취되었다고 읽으신다. 성령 기름부음 받은 사명은 가난한 자에게 복음, 포로에게 해방, 눈먼 자에게 다시 보게 함, 억눌린 자에게 자유, 주의 은혜의 해를 가져온다.", "herQ": "How does Luke’s vision of release challenge spiritualized or individualistic readings of salvation?", "herQKo": "누가의 해방 비전은 구원을 영적이거나 개인적인 것으로만 읽는 방식을 어떻게 도전하는가?", "herA": "Luke does not separate spiritual renewal from embodied restoration. Salvation appears as release, healing, restored perception, and renewed social belonging.", "herAKo": "누가는 영적 새로움과 몸을 입은 회복을 분리하지 않는다. 구원은 해방, 치유, 회복된 인식, 새 사회적 소속으로 나타난다.", "intQ": "How can Luke 4 reshape the church’s understanding of gospel proclamation and social responsibility?", "intQKo": "누가복음 4장은 복음 선포와 사회적 책임에 대한 교회의 이해를 어떻게 새롭게 하는가?", "intA": "The church proclaims faithfully when its words and practices participate in Jesus’ Spirit-led release: restoring dignity, challenging oppression, and creating belonging for the marginalized.", "intAKo": "교회는 말과 실천이 예수의 성령 주도 해방에 참여할 때 신실하게 복음을 선포한다. 이는 존엄을 회복하고 억압에 도전하며 주변화된 이들을 위한 소속 공간을 만드는 것이다."}, {"day": "Friday", "id": "F2", "ref": "Luke 15:11–32", "refKo": "누가복음 15:11–32", "focus": "Lost sons", "focusKo": "잃은 두 아들", "theme": "Mercy, return, resentment, restored belonging, and shared joy.", "themeKo": "긍휼, 돌아옴, 분노, 회복된 소속, 함께하는 기쁨.", "tags": ["mercy", "return", "resentment", "belonging", "joy"], "tagsKo": ["긍휼", "돌아옴", "분노", "소속", "기쁨"], "model": "Luke’s parable of the two sons reveals divine mercy as restored belonging while exposing resentment that refuses to rejoice in another’s return.", "modelKo": "누가의 두 아들 비유는 하나님의 긍휼을 회복된 소속으로 드러내며, 타인의 돌아옴을 함께 기뻐하지 못하는 분노를 폭로한다.", "aim": "Help students see both sons as lost in different ways and the father as the center of restored kinship.", "aimKo": "학생들이 두 아들이 서로 다른 방식으로 잃어버린 자들이며 아버지가 회복된 친족 관계의 중심임을 보도록 돕는다.", "exeQ": "How does Luke 15:11–32 portray lostness, return, and restored belonging?", "exeQKo": "누가복음 15:11–32는 잃어버림, 돌아옴, 회복된 소속을 어떻게 묘사하는가?", "exeA": "The younger son is lost through leaving and squandering; the older son is lost through resentment and refusal to enter joy. The father restores the younger and pleads with the older.", "exeAKo": "둘째 아들은 떠남과 탕진을 통해 잃어버린 자가 되고, 큰아들은 분노와 기쁨 안으로 들어가기를 거부함으로 잃어버린 자가 된다. 아버지는 둘째를 회복시키고 큰아들에게 간청한다.", "herQ": "How does this parable expose resentment within religious communities?", "herQKo": "이 비유는 종교 공동체 안의 분노를 어떻게 드러내는가?", "herA": "It reveals how communities can obey externally while refusing mercy. Resentment appears when another person’s restoration feels like a threat.", "herAKo": "이 비유는 공동체가 외적으로는 순종하면서도 긍휼을 거부할 수 있음을 드러낸다. 타인의 회복이 위협처럼 느껴질 때 분노가 나타난다.", "intQ": "How should this parable reshape practices of repentance, welcome, and communal joy?", "intQKo": "이 비유는 회개, 환대, 공동체적 기쁨의 실천을 어떻게 새롭게 해야 하는가?", "intA": "Communities should practice repentance as return, welcome as restored dignity, and joy as shared participation in mercy rather than competition over worthiness.", "intAKo": "공동체는 회개를 돌아옴으로, 환대를 회복된 존엄으로, 기쁨을 자격 경쟁이 아니라 긍휼에 함께 참여하는 것으로 실천해야 한다."}, {"day": "Friday", "id": "F3", "ref": "John 1:1–18", "refKo": "요한복음 1:1–18", "focus": "Prologue", "focusKo": "서문", "theme": "Logos, incarnation, light, witness, dwelling, glory, and life.", "themeKo": "로고스, 성육신, 빛, 증언, 거함, 영광, 생명.", "tags": ["Logos", "incarnation", "light", "dwelling", "glory"], "tagsKo": ["로고스", "성육신", "빛", "거함", "영광"], "model": "John’s prologue presents the incarnate Logos as God’s life and light dwelling among humanity so that witness leads readers into grace-filled recognition.", "modelKo": "요한의 서문은 성육신한 로고스를 인간 가운데 거하시는 하나님의 생명과 빛으로 제시하여 증언이 독자들을 은혜 가득한 인식으로 이끈다.", "aim": "Help students hold together high Christology and embodied incarnation.", "aimKo": "학생들이 높은 그리스도론과 몸을 입은 성육신을 함께 붙들도록 돕는다.", "exeQ": "How does John 1:1–18 introduce Jesus’ identity and mission?", "exeQKo": "요한복음 1:1–18은 예수의 정체성과 사명을 어떻게 소개하는가?", "exeA": "John identifies Jesus as the preexistent Logos who is with God and is God, through whom life and light come. The Logos becomes flesh and dwells among us, revealing glory, grace, and truth.", "exeAKo": "요한은 예수를 하나님과 함께 계셨고 하나님이신 선재하는 로고스로 제시하며, 그를 통해 생명과 빛이 온다고 말한다. 로고스는 육신이 되어 우리 가운데 거하시며 영광, 은혜, 진리를 드러낸다.", "herQ": "How does the incarnation challenge abstract or disembodied views of faith?", "herQKo": "성육신은 추상적이거나 탈육체화된 믿음 이해를 어떻게 도전하는가?", "herA": "The Word becomes flesh, so faith cannot remain abstract, detached, or merely conceptual. God’s revelation takes bodily, relational, and historical form.", "herAKo": "말씀이 육신이 되셨기에 믿음은 추상적이거나 분리되어 있거나 개념적인 것에 머물 수 없다. 하나님의 계시는 몸을 입고 관계적이며 역사적인 형태를 취한다.", "intQ": "How can John’s Logos theology shape learning, witness, and community formation?", "intQKo": "요한의 로고스 이해는 학습, 증언, 공동체 형성을 어떻게 빚을 수 있는가?", "intA": "Learning and witness should move from abstract claims to embodied presence: receiving light, practicing truthful grace, and becoming communities where God’s life is visible.", "intAKo": "학습과 증언은 추상적 주장에서 몸을 입은 임재로 이동해야 한다. 이는 빛을 받고, 진실한 은혜를 실천하며, 하나님의 생명이 보이는 공동체가 되는 것이다."}, {"day": "Friday", "id": "F4", "ref": "John 13:1–17, 34–35", "refKo": "요한복음 13:1–17, 34–35", "focus": "Footwashing and love command", "focusKo": "발 씻김과 사랑의 계명", "theme": "Love, service, embodied humility, mutual recognition, and community identity.", "themeKo": "사랑, 섬김, 몸으로 드러나는 겸손, 상호 인정, 공동체 정체성.", "tags": ["love", "service", "humility", "footwashing", "identity"], "tagsKo": ["사랑", "섬김", "겸손", "발 씻김", "정체성"], "model": "John portrays Jesus’ love through embodied humility so that the community’s identity becomes recognizable through mutual service and self-giving love.", "modelKo": "요한은 몸으로 드러나는 겸손을 통해 예수의 사랑을 묘사하여 공동체의 정체성이 상호 섬김과 자기 내어주는 사랑을 통해 알아볼 수 있게 한다.", "aim": "Guide students to see love as enacted service that reveals communal identity.", "aimKo": "학생들이 사랑을 공동체 정체성을 드러내는 실천된 섬김으로 보도록 인도한다.", "exeQ": "How does John 13 define Jesus’ love and the disciples’ identity?", "exeQKo": "요한복음 13장은 예수의 사랑과 제자들의 정체성을 어떻게 정의하는가?", "exeA": "Jesus loves to the end by washing his disciples’ feet, taking the servant’s role before the cross. The community is recognized not by status markers but by embodied mutual love.", "exeAKo": "예수는 십자가 이전에 종의 역할을 취하여 제자들의 발을 씻기심으로 끝까지 사랑하신다. 공동체는 지위 표지가 아니라 몸으로 드러나는 상호 사랑으로 인식된다.", "herQ": "How does footwashing challenge modern Christian identity markers?", "herQKo": "발 씻김은 현대 기독교 정체성 표지를 어떻게 도전하는가?", "herA": "It challenges identity based on reputation, doctrinal performance, charisma, or institutional power. John centers humble service as the visible mark of belonging to Jesus.", "herAKo": "발 씻김은 평판, 교리적 수행, 카리스마, 제도적 권력에 기반한 정체성을 도전한다. 요한은 겸손한 섬김을 예수께 속한 사람들의 보이는 표지로 중심에 둔다.", "intQ": "How should Jesus’ embodied humility reshape leadership and community practice?", "intQKo": "예수의 몸으로 드러난 겸손은 리더십과 공동체 실천을 어떻게 새롭게 해야 하는가?", "intA": "Leadership should take the lower place, perform concrete acts of service, and create communities where mutual care becomes the public sign of discipleship.", "intAKo": "리더십은 낮은 자리를 취하고 구체적 섬김을 수행하며 상호 돌봄이 제자도의 공적 표지가 되는 공동체를 만들어야 한다."}, {"day": "Friday", "id": "F5", "ref": "John 20:30–31", "refKo": "요한복음 20:30–31", "focus": "Purpose statement", "focusKo": "기록 목적 진술", "theme": "Belief, life, written witness, signs, and reader response.", "themeKo": "믿음, 생명, 기록된 증언, 표적, 독자의 응답.", "tags": ["belief", "life", "signs", "witness", "reader"], "tagsKo": ["믿음", "생명", "표적", "증언", "독자"], "model": "John writes selected signs so that readers may believe Jesus is the Messiah, the Son of God, and receive life in his name.", "modelKo": "요한은 독자들이 예수가 그리스도요 하나님의 아들이심을 믿고 그 이름 안에서 생명을 얻게 하려고 선택된 표적들을 기록한다.", "aim": "Help students understand John as written witness designed for reader transformation.", "aimKo": "학생들이 요한복음을 독자 변화를 위해 설계된 기록된 증언으로 이해하도록 돕는다.", "exeQ": "How does John 20:30–31 explain the purpose of the Gospel?", "exeQKo": "요한복음 20:30–31은 복음서의 목적을 어떻게 설명하는가?", "exeA": "John states that many signs were not written, but these were written so readers may believe Jesus is the Messiah, the Son of God, and have life in his name.", "exeAKo": "요한은 많은 표적이 기록되지 않았지만, 이것들이 기록된 것은 독자들이 예수가 그리스도요 하나님의 아들이심을 믿고 그 이름 안에서 생명을 얻게 하려는 것이라고 말한다.", "herQ": "How does John’s purpose statement challenge passive reading of Scripture?", "herQKo": "요한의 목적 진술은 성경을 수동적으로 읽는 방식을 어떻게 도전하는가?", "herA": "John expects readers to respond. Scripture is not merely information storage; it is written witness that calls for recognition, trust, and participation in life.", "herAKo": "요한은 독자들의 응답을 기대한다. 성경은 단순한 정보 저장소가 아니라 인식, 신뢰, 생명 참여로 부르는 기록된 증언이다.", "intQ": "How can John’s written witness shape the way students read, teach, and embody Scripture?", "intQKo": "요한의 기록된 증언은 학생들이 성경을 읽고 가르치고 구현하는 방식을 어떻게 형성하는가?", "intA": "Students should read Scripture as testimony that invites response, teach it toward life-giving recognition of Jesus, and embody its witness through practices that make life visible.", "intAKo": "학생들은 성경을 응답으로 초대하는 증언으로 읽고, 예수에 대한 생명 주는 인식으로 가르치며, 생명이 보이는 실천을 통해 그 증언을 구현해야 한다."}];
 let LANG = 'en';
+let ALL_ROWS = [];
+let autoTimer = null;
+let AUTO_ANALYSIS = [];
+
 const UI = {
   en: {
     mainTitle:'Understanding the Bible — Week 9 Facilitator App',
-    subtitle:'Google-connected professor companion · live student submissions · E1–E7 · H1–H5 · real-time scoring',
+    subtitle:'Google-connected professor companion · live student submissions · E1–E7 · H1–H5 · auto refresh · L1–L4 analytics',
     classRhythm:'<strong>Class Rhythm</strong><br>Tuesday: Mark + Matthew · Friday: Luke + John',
     tuesday:'Tuesday Texts', friday:'Friday Texts', print:'Print', download:'Download Snapshot',
-    aim:'Facilitator Aim', model:'Model Integrated Sentence',
-    dashboard:'Google Sheet Live Dashboard', connection:'Connection',
-    connectionText:'Student answers submitted from the GitHub/HDLMS active learning app are loaded from the same Google Sheet through Apps Script.',
-    load:'Load / Refresh Student Answers', auto:'Toggle Auto Refresh',
-    filterText:'Filter by Text', filterGroup:'Filter by Group', filterStudent:'Filter by Student',
-    notLoaded:'Not loaded yet.', core:'Core Question Answers + '+UI[LANG].profNote+'s',
-    protocol:'E1–E7 Exegetical Mapping + H1–H5 Hermeneutical Bridge',
+    aim:'Facilitator Aim', model:'Model Integrated Sentence', dashboard:'Google Sheet Live Dashboard',
+    connection:'Connection', connectionText:'Student answers submitted from the GitHub/HDLMS active learning app are loaded from the same Google Sheet through Apps Script.',
+    load:'Load / Refresh Student Answers', autoOn:'Auto Refresh: ON', autoOff:'Auto Refresh: OFF', autoBtn:'Toggle Auto Refresh',
+    filterText:'Filter by Text', filterGroup:'Filter by Group', filterStudent:'Filter by Student', allTexts:'All texts',
+    groupPh:'e.g., 3A, Tuesday-2', studentPh:'Name or ID', notLoaded:'Not loaded yet.',
+    loading:'Loading from Google Sheet...', loadedPrefix:'Loaded ', loadedSuffix:' answer rows from Google Sheet.', loadError:'Could not load.',
+    noDataTitle:'📭 No Student Submissions Yet', noDataText:'No data found in the Answers sheet.', checkTitle:'Check:',
+    check1:'Students clicked Submit in the Student App', check2:'The correct Google Sheet is connected', check3:'You clicked Load / Refresh after submission',
+    core:'Core Question Answers + Professor Notes', protocol:'E1–E7 Exegetical Mapping + H1–H5 Hermeneutical Bridge',
     scoring:'Real-Time Scoring Layer', reset:'Reset Current Text Scores', copy:'Copy Score Snapshot',
-    ab:'Tuesday A/B Group Protocol', abStructure:'A/B Structure',
+    ab:'Tuesday A/B Group Protocol', abStructure:'A/B Structure', abStructureText:'A Group stays inside the text and answers the exegetical question. B Group compares AI-assisted answers, translates them into student language, and produces a converged hermeneutical answer. The integration step resolves the tension into one claim.',
+    diagnostic:'Language Transformation Diagnostic', diagnosticText:'Repeating AI wording indicates data possession. Paraphrasing indicates surface understanding. Reframing with examples and structure indicates internalization. Integration indicates formation-level movement.',
     movement:'Group Integration + Movement Map', praxis:'Covenantal Praxis + Failure Loop',
-    exe:'Exegetical Question', her:'Hermeneutical Question', int:'Integration Question',
-    profNote:''+UI[LANG].profNote+'', profPlaceholder:'Observation, misconception, feedback, or next prompt...',
-    loaded:'Loaded ', rows:' answer rows from Google Sheet.',
-    loading:'Loading from Google Sheet...',
-    noMatch:''+UI[LANG].noMatch+'',
-    couldNot:'Could not load.',
-    currentAvg:''+UI[LANG].currentAvg+'',
-    group:'Group', groupA:'A Exegetical', groupB:'B Hermeneutical', groupI:'A+B Integration',
-    evidence:''+UI[LANG].evidence+'',
-    student:'Student', textId:'Text ID', timestamp:'Timestamp', more:'More fields',
-    exeAns:'Exegetical', herAns:'Hermeneutical', intAns:'Integrated Claim'
+    exe:'Exegetical Question', her:'Hermeneutical Question', int:'Integration Question', profNote:'Professor Note', profPlaceholder:'Observation, misconception, feedback, or next prompt...',
+    analytics:'Automatic L1–L4 Understanding Analytics', analyticsPurpose:'Purpose', analyticsText:'This layer estimates whether student language shows copying, paraphrasing, reframing, or integration. Treat it as a facilitator aid, not a final grade.',
+    analyze:'Run Auto Analysis', copyFeedback:'Copy Feedback Summary', loadFirst:'Load student answers first.', noMatch:'No matching student answers loaded.',
+    groupSnapshot:'Group Understanding Snapshot', avg:'Average Level', distribution:'Distribution', feedback:'AI-Assisted Facilitator Feedback',
+    student:'Student', group:'Group', timestamp:'Timestamp', exeAns:'Exegetical', herAns:'Hermeneutical', intAns:'Integrated Claim', more:'More fields',
+    currentAvg:'Current averages', mainGroup:'Main Group', groupA:'A Exegetical', groupB:'B Hermeneutical', groupI:'A+B Integration', evidence:'Evidence note: What did they say in their own language?'
   },
   ko: {
     mainTitle:'성경의 이해 — 9주차 교수자 Facilitator App',
-    subtitle:'Google 연결 교수자 동반 앱 · 학생 제출 답변 보기 · E1–E7 · H1–H5 · 실시간 채점',
+    subtitle:'Google 연결 교수자 앱 · 학생 제출 답변 보기 · E1–E7 · H1–H5 · 자동 새로고침 · L1–L4 분석',
     classRhythm:'<strong>수업 리듬</strong><br>화요일: 마가 + 마태 · 금요일: 누가 + 요한',
     tuesday:'화요일 본문', friday:'금요일 본문', print:'인쇄', download:'스냅샷 다운로드',
-    aim:'교수자 목표', model:'모범 통합 문장',
-    dashboard:'Google Sheet 실시간 대시보드', connection:'연결 상태',
-    connectionText:'GitHub/HDLMS 액티브 러닝 앱에서 제출된 학생 답변을 Apps Script를 통해 같은 Google Sheet에서 불러옵니다.',
-    load:'학생 답변 불러오기 / 새로고침', auto:'자동 새로고침 전환',
-    filterText:'본문 필터', filterGroup:'그룹 필터', filterStudent:'학생 필터',
-    notLoaded:'아직 불러오지 않았습니다.', core:'핵심 질문 답안 + 교수자 노트',
-    protocol:'E1–E7 주해 매핑 + H1–H5 해석학적 브리지',
+    aim:'교수자 목표', model:'모범 통합 문장', dashboard:'Google Sheet 실시간 대시보드',
+    connection:'연결 상태', connectionText:'GitHub/HDLMS 액티브 러닝 앱에서 제출된 학생 답변을 Apps Script를 통해 같은 Google Sheet에서 불러옵니다.',
+    load:'학생 답변 불러오기 / 새로고침', autoOn:'자동 새로고침: 켜짐', autoOff:'자동 새로고침: 꺼짐', autoBtn:'자동 새로고침 전환',
+    filterText:'본문 필터', filterGroup:'그룹 필터', filterStudent:'학생 필터', allTexts:'전체 본문',
+    groupPh:'예: 3A, 화요일-2', studentPh:'이름 또는 학번', notLoaded:'아직 불러오지 않았습니다.',
+    loading:'Google Sheet에서 불러오는 중...', loadedPrefix:'Google Sheet에서 ', loadedSuffix:'개의 답변 행을 불러왔습니다.', loadError:'불러올 수 없습니다.',
+    noDataTitle:'📭 아직 제출된 학생 데이터가 없습니다', noDataText:'Answers 시트에 데이터가 없습니다.', checkTitle:'확인 사항:',
+    check1:'학생이 Student App에서 Submit을 눌렀는지', check2:'올바른 Google Sheet가 연결되었는지', check3:'제출 후 Load / Refresh를 눌렀는지',
+    core:'핵심 질문 답안 + 교수자 노트', protocol:'E1–E7 주해 매핑 + H1–H5 해석학적 브리지',
     scoring:'실시간 채점 레이어', reset:'현재 본문 점수 초기화', copy:'점수 스냅샷 복사',
-    ab:'화요일 A/B 그룹 프로토콜', abStructure:'A/B 구조',
+    ab:'화요일 A/B 그룹 프로토콜', abStructure:'A/B 구조', abStructureText:'A그룹은 본문 안에 머물며 주해 질문에 답합니다. B그룹은 AI 보조 답변을 비교하고 학생 자신의 언어로 번역한 뒤 하나의 수렴된 해석학 답변을 만듭니다. 통합 단계는 그 긴장을 하나의 명제로 해결합니다.',
+    diagnostic:'언어 변환 진단', diagnosticText:'AI 표현을 반복하면 데이터 보유 단계입니다. 재진술은 표면 이해를 나타냅니다. 예시와 구조로 재구성하면 내면화의 증거입니다. 통합은 형성 수준의 움직임을 나타냅니다.',
     movement:'그룹 통합 + 움직임 지도', praxis:'언약적 실천 + 실패 루프',
-    exe:'주해 질문', her:'해석학 질문', int:'통합 질문',
-    profNote:'교수자 노트', profPlaceholder:'관찰, 오해, 피드백, 다음 질문을 기록하세요...',
-    loaded:'Google Sheet에서 ', rows:'개의 답변 행을 불러왔습니다.',
-    loading:'Google Sheet에서 불러오는 중...',
-    noMatch:'조건에 맞는 학생 답변이 없습니다.',
-    couldNot:'불러올 수 없습니다.',
-    currentAvg:'현재 평균',
-    group:'그룹', groupA:'A 주해', groupB:'B 해석학', groupI:'A+B 통합',
-    evidence:'근거 노트: 학생이 자기 언어로 무엇을 말했는가?',
-    student:'학생', textId:'본문 ID', timestamp:'시간', more:'추가 필드',
-    exeAns:'주해 답변', herAns:'해석학 답변', intAns:'통합 명제'
+    exe:'주해 질문', her:'해석학 질문', int:'통합 질문', profNote:'교수자 노트', profPlaceholder:'관찰, 오해, 피드백, 다음 질문을 기록하세요...',
+    analytics:'자동 L1–L4 이해도 분석', analyticsPurpose:'목적', analyticsText:'이 레이어는 학생 언어가 복사, 재진술, 재구성, 통합 중 어디에 가까운지 추정합니다. 최종 성적이 아니라 교수자 보조 도구로 사용하세요.',
+    analyze:'자동 분석 실행', copyFeedback:'피드백 요약 복사', loadFirst:'먼저 학생 답변을 불러오세요.', noMatch:'조건에 맞는 학생 답변이 없습니다.',
+    groupSnapshot:'그룹 이해도 스냅샷', avg:'평균 레벨', distribution:'분포', feedback:'AI 보조 교수자 피드백',
+    student:'학생', group:'그룹', timestamp:'시간', exeAns:'주해 답변', herAns:'해석학 답변', intAns:'통합 명제', more:'추가 필드',
+    currentAvg:'현재 평균', mainGroup:'메인 그룹', groupA:'A 주해', groupB:'B 해석학', groupI:'A+B 통합', evidence:'근거 노트: 학생이 자기 언어로 무엇을 말했는가?'
   }
 };
-function setLang(lang){
-  LANG = lang;
-  document.documentElement.lang = lang;
-  el('enBtn').classList.toggle('active', lang==='en');
-  el('koBtn').classList.toggle('active', lang==='ko');
-  const u = UI[lang];
-  document.querySelector('header h1').textContent = u.mainTitle;
-  el('subtitle').textContent = u.subtitle;
-  el('classRhythm').innerHTML = u.classRhythm;
-  el('tuesdayLabel').textContent = u.tuesday;
-  el('fridayLabel').textContent = u.friday;
-  el('printBtn').textContent = u.print;
-  el('downloadBtn').textContent = u.download;
-  el('aimLabel').textContent = u.aim;
-  el('modelLabel').textContent = u.model;
-  el('dashboardTitle').textContent = u.dashboard;
-  el('connectionLabel').textContent = u.connection;
-  el('connectionText').textContent = u.connectionText;
-  el('loadBtn').textContent = u.load;
-  el('autoBtn').textContent = u.auto;
-  el('filterTextLabel').textContent = u.filterText;
-  el('filterGroupLabel').textContent = u.filterGroup;
-  el('filterStudentLabel').textContent = u.filterStudent;
-  el('coreTitle').textContent = u.core;
-  el('protocolTitle').textContent = u.protocol;
-  el('scoringTitle').textContent = u.scoring;
-  el('resetScoreBtn').textContent = u.reset;
-  el('copyScoreBtn').textContent = u.copy;
-  el('abTitle').textContent = u.ab;
-  el('abStructureLabel').textContent = u.abStructure;
-  el('movementTitle').textContent = u.movement;
-  el('praxisTitle').textContent = u.praxis;
-  document.querySelectorAll('[data-ph-en]').forEach(x=>x.placeholder = lang==='ko' ? x.dataset.phKo : x.dataset.phEn);
-  render(Number(localStorage.getItem('fac-current')||0));
-}
-
-let ALL_ROWS = [];
-let autoTimer = null;
 
 function el(id){return document.getElementById(id)}
 function esc(v){return String(v||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function tx(t,en,ko){return LANG==='ko' ? t[ko] : t[en]}
 function currentText(){return TEXTS[Number(localStorage.getItem('fac-current')||0)]}
 
-function buildNav(){
+function setLang(lang){
+  LANG=lang; document.documentElement.lang=lang;
+  el('enBtn').classList.toggle('active',lang==='en'); el('koBtn').classList.toggle('active',lang==='ko');
+  const u=UI[lang];
+  el('appTitle').textContent=u.mainTitle; el('subtitle').textContent=u.subtitle; el('classRhythm').innerHTML=u.classRhythm;
+  el('tuesdayLabel').textContent=u.tuesday; el('fridayLabel').textContent=u.friday; el('printBtn').textContent=u.print; el('downloadBtn').textContent=u.download;
+  el('aimLabel').textContent=u.aim; el('modelLabel').textContent=u.model; el('dashboardTitle').textContent=u.dashboard; el('connectionLabel').textContent=u.connection; el('connectionText').textContent=u.connectionText;
+  el('loadBtn').textContent=u.load; el('autoBtn').textContent=u.autoBtn; el('filterTextLabel').textContent=u.filterText; el('filterGroupLabel').textContent=u.filterGroup; el('filterStudentLabel').textContent=u.filterStudent;
+  el('filterGroup').placeholder=u.groupPh; el('filterStudent').placeholder=u.studentPh; el('coreTitle').textContent=u.core; el('protocolTitle').textContent=u.protocol; el('scoringTitle').textContent=u.scoring;
+  el('resetScoreBtn').textContent=u.reset; el('copyScoreBtn').textContent=u.copy; el('abTitle').textContent=u.ab; el('abStructureLabel').textContent=u.abStructure; el('abStructureText').textContent=u.abStructureText;
+  el('diagnosticLabel').textContent=u.diagnostic; el('diagnosticText').textContent=u.diagnosticText; el('movementTitle').textContent=u.movement; el('praxisTitle').textContent=u.praxis;
+  el('analyticsTitle').textContent=u.analytics; el('analyticsPurpose').textContent=u.analyticsPurpose; el('analyticsPurposeText').textContent=u.analyticsText; el('analyzeBtn').textContent=u.analyze; el('copyFeedbackBtn').textContent=u.copyFeedback;
+  buildNav(true); render(Number(localStorage.getItem('fac-current')||0)); renderSubmissions(); if(AUTO_ANALYSIS.length) runAutoAnalysis(false);
+}
+
+function buildNav(rebuild=false){
+  if(rebuild){el('tuesday').innerHTML=''; el('friday').innerHTML=''; const select=el('filterText'); select.innerHTML='<option value="">'+UI[LANG].allTexts+'</option>';}
   TEXTS.forEach((t,i)=>{
-    const b=document.createElement('button'); b.dataset.i=String(i); b.textContent=t.id+' · '+t.ref; b.onclick=()=>render(i);
+    const b=document.createElement('button'); b.dataset.i=String(i); b.textContent=t.id+' · '+tx(t,'ref','refKo'); b.onclick=()=>render(i);
     el(t.day==='Tuesday'?'tuesday':'friday').appendChild(b);
-    const opt=document.createElement('option'); opt.value=t.id; opt.textContent=t.id+' · '+t.ref; el('filterText').appendChild(opt);
+    const opt=document.createElement('option'); opt.value=t.id; opt.textContent=t.id+' · '+tx(t,'ref','refKo'); el('filterText').appendChild(opt);
   });
 }
+
 function render(i=0){
   const t=TEXTS[i]; localStorage.setItem('fac-current',String(i));
   document.querySelectorAll('nav button[data-i]').forEach(b=>b.classList.toggle('active',Number(b.dataset.i)===i));
-  el('title').textContent=t.id+' · '+t.ref; el('theme').textContent='Focus: '+t.focus+' · '+t.theme;
-  el('tags').innerHTML=t.tags.map(x=>'<span class="pill">'+esc(x)+'</span>').join('');
-  el('aim').textContent=t.aim; el('model').textContent=t.model;
-  el('filterText').value=t.id;
+  el('title').textContent=t.id+' · '+tx(t,'ref','refKo'); el('theme').textContent=tx(t,'focus','focusKo')+' · '+tx(t,'theme','themeKo');
+  const tagList=LANG==='ko'?t.tagsKo:t.tags; el('tags').innerHTML=tagList.map(x=>'<span class="pill">'+esc(x)+'</span>').join('');
+  el('aim').textContent=tx(t,'aim','aimKo'); el('model').textContent=tx(t,'model','modelKo'); el('filterText').value=t.id;
   renderCore(t); renderProtocols(t); renderScoring(t); renderMovement(t); renderSubmissions();
 }
+
 function noteKey(t,type){return 'prof-note-'+t.id+'-'+type}
 function renderCore(t){
-  const rows=[ [UI[LANG].exe,'exe',t.exeQ,t.exeA],[UI[LANG].her,'her',t.herQ,t.herA],[UI[LANG].int,'int',t.intQ,t.intA]];
-  el('core').innerHTML=rows.map(x=>'<div class="qa"><div class="q">'+x[0]+'</div><div class="sub">'+esc(x[2])+'</div><p>'+esc(x[3])+'</p><label class="mini">'+UI[LANG].profNote+'</label><textarea oninput="localStorage.setItem(\''+noteKey(t,x[1])+'\',this.value)" placeholder="'+UI[LANG].profPlaceholder+'">'+esc(localStorage.getItem(noteKey(t,x[1]))||'')+'</textarea></div>').join('');
+  const u=UI[LANG]; const rows=[[u.exe,'exe',tx(t,'exeQ','exeQKo'),tx(t,'exeA','exeAKo')],[u.her,'her',tx(t,'herQ','herQKo'),tx(t,'herA','herAKo')],[u.int,'int',tx(t,'intQ','intQKo'),tx(t,'intA','intAKo')]];
+  el('core').innerHTML=rows.map(x=>'<div class="qa"><div class="q">'+x[0]+'</div><div class="sub">'+esc(x[2])+'</div><p>'+esc(x[3])+'</p><label class="mini">'+u.profNote+'</label><textarea oninput="localStorage.setItem(\''+noteKey(t,x[1])+'\',this.value)" placeholder="'+u.profPlaceholder+'">'+esc(localStorage.getItem(noteKey(t,x[1]))||'')+'</textarea></div>').join('');
 }
+
 function renderProtocols(t){
-  const E=[['E1 · Pericope / Gospel Frame','Read '+t.ref+' inside its immediate unit and whole Gospel narrative aim.'],['E2 · Characters / Agents','Identify who acts, speaks, receives, resists, and how Jesus is disclosed.'],['E3 · Movement / Location','Track spatial and narrative movement and how that movement carries meaning.'],['E4 · Key Words / Literary Signals','Observe repeated terms and signals: '+t.tags.join(', ')+'.'],['E5 · Conflict / Tension','Name the central tension the passage exposes.'],['E6 · Covenant / Identity Markers','Ask how this text forms identity through promise, witness, service, mercy, mission, love, or life.'],['E7 · Exegetical Summary Claim','Model answer: '+t.exeA]];
-  const H=[['H1 · Continuity','What carries over responsibly from the Gospel world to today?'],['H2 · Discontinuity / Gap','What must not be transferred directly?'],['H3 · Gospel Voice','How does this Gospel’s distinctive voice shape the bridge?'],['H4 · Formation / Justice Reconfiguration','What perception, desire, behavior, and community practice must be reordered?'],['H5 · Hermeneutical Bridge Claim','Model answer: '+t.herA]];
-  el('protocols').innerHTML='<div class="qa"><div class="q">Exegetical Question</div><div class="sub">'+esc(t.exeQ)+'</div></div><div class="grid">'+E.map(x=>'<div class="qa"><div class="q">'+x[0]+'</div><div>'+esc(x[1])+'</div></div>').join('')+'</div><div class="qa"><div class="q">Hermeneutical Question</div><div class="sub">'+esc(t.herQ)+'</div></div><div class="grid">'+H.map(x=>'<div class="qa fac"><div class="q">'+x[0]+'</div><div>'+esc(x[1])+'</div></div>').join('')+'</div>';
+ const E=[['E1 · Pericope / Gospel Frame','Read '+tx(t,'ref','refKo')+' inside its immediate unit and whole Gospel narrative aim.'],['E2 · Characters / Agents','Identify who acts, speaks, receives, resists, and how Jesus is disclosed.'],['E3 · Movement / Location','Track spatial and narrative movement and how that movement carries meaning.'],['E4 · Key Words / Literary Signals','Observe repeated terms and signals: '+(LANG==='ko'?t.tagsKo:t.tags).join(', ')+'.'],['E5 · Conflict / Tension','Name the central tension the passage exposes.'],['E6 · Covenant / Identity Markers','Ask how this text forms identity through promise, witness, service, mercy, mission, love, or life.'],['E7 · Exegetical Summary Claim','Model answer: '+tx(t,'exeA','exeAKo')]];
+ const H=[['H1 · Continuity','What carries over responsibly from the Gospel world to today?'],['H2 · Discontinuity / Gap','What must not be transferred directly?'],['H3 · Gospel Voice','How does this Gospel’s distinctive voice shape the bridge?'],['H4 · Formation / Justice Reconfiguration','What perception, desire, behavior, and community practice must be reordered?'],['H5 · Hermeneutical Bridge Claim','Model answer: '+tx(t,'herA','herAKo')]];
+ el('protocols').innerHTML='<div class="qa"><div class="q">'+UI[LANG].exe+'</div><div class="sub">'+esc(tx(t,'exeQ','exeQKo'))+'</div></div><div class="grid">'+E.map(x=>'<div class="qa"><div class="q">'+x[0]+'</div><div>'+esc(x[1])+'</div></div>').join('')+'</div><div class="qa"><div class="q">'+UI[LANG].her+'</div><div class="sub">'+esc(tx(t,'herQ','herQKo'))+'</div></div><div class="grid">'+H.map(x=>'<div class="qa fac"><div class="q">'+x[0]+'</div><div>'+esc(x[1])+'</div></div>').join('')+'</div>';
 }
+
 function renderMovement(t){
-  el('movement').innerHTML='<div class="two"><div class="qa"><div class="q">Group A — Textual Claim</div><div>This text means: '+esc(t.exeA)+'</div></div><div class="qa"><div class="q">Group B — Interpretive Challenge</div><div>That interpretation misses the text if it does not ask how '+esc(t.theme.toLowerCase())+' must reshape present practice responsibly.</div></div></div><div class="qa"><div class="q">Integrated Claim</div><div>'+esc(t.intA)+'</div></div>';
-  el('praxis').innerHTML='<div class="qa fac"><div class="q">Covenantal Praxis Model</div><div>Name one concrete action, toward whom, likely cost, expected resistance, and accountability partner.</div></div><div class="qa warn"><div class="q">Failure Loop</div><div>Ask: Where did we move too quickly? What did another group show us? Because of this text, what can we no longer believe, and how must we now live?</div></div>';
+  el('movement').innerHTML='<div class="two"><div class="qa"><div class="q">Group A</div><div>'+esc(tx(t,'exeA','exeAKo'))+'</div></div><div class="qa"><div class="q">Group B</div><div>'+esc(tx(t,'herA','herAKo'))+'</div></div></div><div class="qa"><div class="q">'+UI[LANG].int+'</div><div>'+esc(tx(t,'intA','intAKo'))+'</div></div>';
+  el('praxis').innerHTML='<div class="qa fac"><div class="q">Covenantal Praxis Model</div><div>'+(LANG==='ko'?'하나의 구체적 행동, 대상, 비용, 예상 저항, 책임 파트너를 명명하십시오.':'Name one concrete action, toward whom, likely cost, expected resistance, and accountability partner.')+'</div></div><div class="qa warn"><div class="q">Failure Loop</div><div>'+(LANG==='ko'?'우리는 어디서 너무 빨리 적용으로 이동했는가? 다른 그룹은 무엇을 보여주었는가? 이 본문 때문에 우리는 이제 무엇을 더 이상 믿을 수 없고 어떻게 살아야 하는가?':'Ask: Where did we move too quickly? What did another group show us? Because of this text, what can we no longer believe, and how must we now live?')+'</div></div>';
 }
 
 function scoreKey(t){return 'fac-score-'+t.id}
@@ -220,130 +200,68 @@ function setLevel(groupIndex,slot,level){const t=currentText();const s=getScores
 function setNote(groupIndex,slot,val){const t=currentText();const s=getScores(t);s[groupIndex][slot].note=val;saveScores(t,s)}
 function renderScoring(t){
   const s=getScores(t); const avg=slot=>{const vals=s.map(x=>x[slot].level).filter(Boolean);return vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1):'—'};
-  el('scoring').innerHTML='<div class="grid4"><div class="qa warn"><div class="q">L1 Copy</div><div>Repeats AI wording.</div></div><div class="qa"><div class="q">L2 Paraphrase</div><div>Changes wording but keeps AI structure.</div></div><div class="qa fac"><div class="q">L3 Reframe</div><div>Own logic or examples.</div></div><div class="qa fac"><div class="q">L4 Integrate</div><div>Text, interpretation, and practice.</div></div></div><div class="qa"><span class="badge">'+UI[LANG].currentAvg+'</span> A: '+avg('A')+' · B: '+avg('B')+' · A+B: '+avg('I')+'</div><table class="table"><tr><th>'+UI[LANG].group+'</th><th>'+UI[LANG].groupA+'</th><th>'+UI[LANG].groupB+'</th><th>'+UI[LANG].groupI+'</th></tr>'+s.map((row,gi)=>'<tr><td><strong>Group '+row.group+'</strong></td>'+['A','B','I'].map(slot=>'<td><div class="mini">'+levelLabel(row[slot].level)+'</div>'+scoreButtons(gi,slot,row[slot].level)+'<textarea oninput="setNote('+gi+',\''+slot+'\',this.value)" placeholder="'+UI[LANG].evidence+'">'+esc(row[slot].note)+'</textarea></td>').join('')+'</tr>').join('')+'</table>';
+  el('scoring').innerHTML='<div class="grid4"><div class="qa warn"><div class="q">L1 Copy</div><div>AI/data possession</div></div><div class="qa"><div class="q">L2 Paraphrase</div><div>Surface understanding</div></div><div class="qa fac"><div class="q">L3 Reframe</div><div>Own logic/examples</div></div><div class="qa fac"><div class="q">L4 Integrate</div><div>Formation movement</div></div></div><div class="qa"><span class="badge">'+UI[LANG].currentAvg+'</span> A: '+avg('A')+' · B: '+avg('B')+' · A+B: '+avg('I')+'</div><table class="table"><tr><th>'+UI[LANG].mainGroup+'</th><th>'+UI[LANG].groupA+'</th><th>'+UI[LANG].groupB+'</th><th>'+UI[LANG].groupI+'</th></tr>'+s.map((row,gi)=>'<tr><td><strong>'+UI[LANG].group+' '+row.group+'</strong></td>'+['A','B','I'].map(slot=>'<td><div class="mini">'+levelLabel(row[slot].level)+'</div>'+scoreButtons(gi,slot,row[slot].level)+'<textarea oninput="setNote('+gi+',\''+slot+'\',this.value)" placeholder="'+UI[LANG].evidence+'">'+esc(row[slot].note)+'</textarea></td>').join('')+'</tr>').join('')+'</table>';
 }
 function resetScoresForText(){const t=currentText();localStorage.removeItem(scoreKey(t));renderScoring(t)}
-function copyScores(){const t=currentText();const s=getScores(t);const lines=[t.id+' '+t.ref+' scoring snapshot'].concat(s.map(r=>'Group '+r.group+': A='+levelLabel(r.A.level)+'; B='+levelLabel(r.B.level)+'; I='+levelLabel(r.I.level)));navigator.clipboard.writeText(lines.join('\n'))}
+function copyScores(){const t=currentText();const s=getScores(t);const lines=[t.id+' '+tx(t,'ref','refKo')+' scoring snapshot'].concat(s.map(r=>'Group '+r.group+': A='+levelLabel(r.A.level)+'; B='+levelLabel(r.B.level)+'; I='+levelLabel(r.I.level)));navigator.clipboard.writeText(lines.join('\n'))}
 
 async function loadSubmissions(){
   el('liveStatus').textContent=UI[LANG].loading;
   try{
-    const res = await fetch(GOOGLE_SCRIPT_URL + '?action=answers&cache=' + Date.now());
-    const data = await res.json();
-    if(data.status !== 'success') throw new Error(data.message || 'Apps Script did not return success.');
-    ALL_ROWS = data.rows || [];
-    el('liveStatus').textContent=(LANG==='ko' ? UI[LANG].loaded+ALL_ROWS.length+UI[LANG].rows : UI[LANG].loaded+ALL_ROWS.length+UI[LANG].rows);
+    const res=await fetch(GOOGLE_SCRIPT_URL+'?action=answers&cache='+Date.now());
+    const data=await res.json();
+    if(data.status!=='success') throw new Error(data.message||'Apps Script did not return success.');
+    ALL_ROWS=data.rows||[];
+    el('liveStatus').textContent=UI[LANG].loadedPrefix+ALL_ROWS.length+UI[LANG].loadedSuffix;
     renderSubmissions();
   }catch(err){
-    el('liveStatus').innerHTML='<strong>'+UI[LANG].couldNot+'</strong> Check that Apps Script has the updated doGet code, is deployed as Web App, and access is Anyone. Error: '+esc(err.message);
+    el('liveStatus').innerHTML='<strong>'+UI[LANG].loadError+'</strong> '+esc(err.message);
+    renderEmptyState(true);
   }
+}
+function renderEmptyState(error=false){
+  el('submissions').innerHTML='<div class="empty"><h3>'+UI[LANG].noDataTitle+'</h3><p>'+UI[LANG].noDataText+'</p><hr><p><strong>'+UI[LANG].checkTitle+'</strong></p><ul><li>'+UI[LANG].check1+'</li><li>'+UI[LANG].check2+'</li><li>'+UI[LANG].check3+'</li></ul></div>';
 }
 function renderSubmissions(){
-  const text = el('filterText')?.value || ''; const group=(el('filterGroup')?.value||'').toLowerCase(); const student=(el('filterStudent')?.value||'').toLowerCase();
-  let rows=ALL_ROWS.filter(r=>(!text||String(r['Text ID']||'')===text) && (!group||String(r['Group']||'').toLowerCase().includes(group)) && (!student||String(r['Student Name']||'').toLowerCase().includes(student)));
-  el('submissions').innerHTML = rows.length ? rows.map((r,idx)=>'<div class="answer-card"><div class="answer-meta"><span class="badge">'+esc(r['Text ID'])+'</span><span class="badge">'+esc(r['Student Name']||'Unknown')+'</span><span class="badge">Group: '+esc(r['Group']||'—')+'</span><span class="badge">'+esc(r['Timestamp']||'')+'</span></div><div class="answer-body"><div><strong>Exegetical</strong><p>'+esc(r['Exegetical Answer']||'')+'</p></div><div><strong>Hermeneutical</strong><p>'+esc(r['Hermeneutical Answer']||'')+'</p></div><div><strong>Integrated Claim</strong><p>'+esc(r['Integrated Claim']||'')+'</p></div></div><details><summary>More fields</summary><p><strong>Group A:</strong> '+esc(r['Group A']||'')+'</p><p><strong>Group B:</strong> '+esc(r['Group B']||'')+'</p><p><strong>Praxis:</strong> '+esc(r['Praxis Act']||'')+'</p><p><strong>Final:</strong> '+esc(r['Final No Longer']||'')+' / '+esc(r['Final Must Live']||'')+'</p></details></div>').join('') : '<div class="status">'+UI[LANG].noMatch+'</div>';
+  const text=el('filterText').value||''; const group=(el('filterGroup').value||'').toLowerCase(); const student=(el('filterStudent').value||'').toLowerCase();
+  let rows=ALL_ROWS.filter(r=>(!text||String(r['Text ID']||'')===text)&&(!group||String(r['Group']||'').toLowerCase().includes(group))&&(!student||String(r['Student Name']||'').toLowerCase().includes(student)));
+  if(!ALL_ROWS.length || !rows.length){renderEmptyState(); return;}
+  el('submissions').innerHTML=rows.map(r=>'<div class="answer-card"><div class="answer-meta"><span class="badge">'+esc(r['Text ID'])+'</span><span class="badge">'+UI[LANG].student+': '+esc(r['Student Name']||'Unknown')+'</span><span class="badge">'+UI[LANG].group+': '+esc(r['Group']||'—')+'</span><span class="badge">'+esc(r['Timestamp']||'')+'</span></div><div class="answer-body"><div><strong>'+UI[LANG].exeAns+'</strong><p>'+esc(r['Exegetical Answer']||'')+'</p></div><div><strong>'+UI[LANG].herAns+'</strong><p>'+esc(r['Hermeneutical Answer']||'')+'</p></div><div><strong>'+UI[LANG].intAns+'</strong><p>'+esc(r['Integrated Claim']||'')+'</p></div></div><details><summary>'+UI[LANG].more+'</summary><p><strong>Group A:</strong> '+esc(r['Group A']||'')+'</p><p><strong>Group B:</strong> '+esc(r['Group B']||'')+'</p><p><strong>Praxis:</strong> '+esc(r['Praxis Act']||'')+'</p><p><strong>Final:</strong> '+esc(r['Final No Longer']||'')+' / '+esc(r['Final Must Live']||'')+'</p></details></div>').join('');
 }
 function toggleAutoRefresh(){
-  if(autoTimer){clearInterval(autoTimer);autoTimer=null;el('liveStatus').textContent='Auto refresh off.';}
-  else{autoTimer=setInterval(loadSubmissions,30000);el('liveStatus').textContent='Auto refresh on: every 30 seconds.';loadSubmissions();}
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;el('liveStatus').textContent=UI[LANG].autoOff;}
+  else{autoTimer=setInterval(loadSubmissions,15000);el('liveStatus').textContent=UI[LANG].autoOn;loadSubmissions();}
 }
 
-function answerTextForAnalysis(r){
-  return [
-    r['Exegetical Answer'] || '',
-    r['Hermeneutical Answer'] || '',
-    r['Integrated Claim'] || '',
-    r['Group A'] || '',
-    r['Group B'] || '',
-    r['Praxis Act'] || '',
-    r['Final No Longer'] || '',
-    r['Final Must Live'] || ''
-  ].join(' ').trim();
-}
+function answerTextForAnalysis(r){return [r['Exegetical Answer']||'',r['Hermeneutical Answer']||'',r['Integrated Claim']||'',r['Group A']||'',r['Group B']||'',r['Praxis Act']||'',r['Final No Longer']||'',r['Final Must Live']||''].join(' ').trim()}
 function estimateLevelFromText(text){
-  const t = String(text || '').trim();
-  const lower = t.toLowerCase();
-  const words = t.split(/\s+/).filter(Boolean);
-  if(words.length < 12) return {level:1, label:'L1 Copy/Data or Too Thin', reason:'Very short or too undeveloped to show owned understanding.'};
-
-  const aiLike = ['moreover','furthermore','therefore','in conclusion','signifies','underscores','highlights','emphasizes','paradigm','framework','multifaceted','holistic','transformative','embodies','reorients','reconfiguration'].filter(w => lower.includes(w)).length;
-  const personal = ['i think','i understand','in my words','for example','in our group','we think','내 생각','제가 이해','우리 조','예를 들어','제 말로','우리 생각'].filter(w => lower.includes(w)).length;
-  const textMarkers = ['verse','word','mark','matthew','luke','john','jesus','disciples','father','본문','구절','마가','마태','누가','요한','예수','제자','아버지'].filter(w => lower.includes(w)).length;
-  const practiceMarkers = ['today','classroom','church','community','practice','act','live','toward','오늘','교실','교회','공동체','실천','행동','살아','향해'].filter(w => lower.includes(w)).length;
-
-  if(words.length > 45 && textMarkers >= 1 && practiceMarkers >= 1 && personal >= 1){
-    return {level:4, label:'L4 Integrate/Formation', reason:'Connects text, interpretation, own language, and practice.'};
-  }
-  if(words.length > 30 && (personal >= 1 || textMarkers >= 2) && aiLike <= 4){
-    return {level:3, label:'L3 Reframe/Interpretive Movement', reason:'Shows re-voicing with some own logic or textual grounding.'};
-  }
-  if(words.length > 20 && aiLike <= 6){
-    return {level:2, label:'L2 Paraphrase/Surface Understanding', reason:'Some wording shift is present, but ownership is still limited.'};
-  }
-  return {level:1, label:'L1 Copy/Data Possession', reason:'Likely copied, too polished, too generic, or not sufficiently re-voiced.'};
+ const t=String(text||'').trim(); const lower=t.toLowerCase(); const words=t.split(/\s+/).filter(Boolean); if(words.length<12)return{level:1,label:'L1 Copy/Data or Too Thin',reason:'Very short or too undeveloped to show owned understanding.'};
+ const personal=['i think','i understand','in my words','for example','in our group','we think','내 생각','제가 이해','우리 조','예를 들어','제 말로','우리 생각'].filter(w=>lower.includes(w)).length;
+ const textMarkers=['verse','word','mark','matthew','luke','john','jesus','disciples','father','본문','구절','마가','마태','누가','요한','예수','제자','아버지'].filter(w=>lower.includes(w)).length;
+ const practiceMarkers=['today','classroom','church','community','practice','act','live','toward','오늘','교실','교회','공동체','실천','행동','살아','향해'].filter(w=>lower.includes(w)).length;
+ if(words.length>45&&textMarkers>=1&&practiceMarkers>=1&&personal>=1)return{level:4,label:'L4 Integrate/Formation',reason:'Connects text, interpretation, own language, and practice.'};
+ if(words.length>30&&(personal>=1||textMarkers>=2))return{level:3,label:'L3 Reframe/Interpretive Movement',reason:'Shows re-voicing with some own logic or textual grounding.'};
+ if(words.length>20)return{level:2,label:'L2 Paraphrase/Surface Understanding',reason:'Some wording shift is present, but ownership is still limited.'};
+ return{level:1,label:'L1 Copy/Data Possession',reason:'Likely copied, too generic, or not sufficiently re-voiced.'};
 }
-function runAutoAnalysis(){
-  const rows = ALL_ROWS || [];
-  if(!rows.length){
-    el('autoSummary').innerHTML = '<div class="status">Load student answers first.</div>';
-    return;
-  }
-  const analyzed = rows.map(r => {
-    const est = estimateLevelFromText(answerTextForAnalysis(r));
-    return Object.assign({}, r, {autoLevel: est.level, autoLabel: est.label, autoReason: est.reason});
-  });
-  window.AUTO_ANALYSIS = analyzed;
-
-  const counts = [1,2,3,4].map(l => analyzed.filter(r => r.autoLevel===l).length);
-  const total = analyzed.length || 1;
-  el('autoSummary').innerHTML =
-    '<div class="analytics-grid">'+[1,2,3,4].map((l,i)=>
-      '<div class="analytics-box"><strong>L'+l+'</strong><br><span class="mini">'+counts[i]+' responses</span><div class="levelbar"><span style="width:'+Math.round(counts[i]/total*100)+'%"></span></div></div>'
-    ).join('')+'</div>';
-
-  const groups = {};
-  analyzed.forEach(r=>{
-    const g = String(r['Group'] || 'No group');
-    if(!groups[g]) groups[g] = [];
-    groups[g].push(r.autoLevel);
-  });
-  el('groupVisualization').innerHTML =
-    '<h3>Group Understanding Snapshot</h3><table class="table"><tr><th>Group</th><th>Average Level</th><th>Distribution</th></tr>'+
-    Object.entries(groups).map(([g,levels])=>{
-      const avg = (levels.reduce((a,b)=>a+b,0)/levels.length).toFixed(1);
-      const dist = [1,2,3,4].map(l=>'L'+l+': '+levels.filter(x=>x===l).length).join(' · ');
-      return '<tr><td>'+esc(g)+'</td><td>'+avg+'</td><td>'+dist+'</td></tr>';
-    }).join('')+'</table>';
-
-  const feedback = analyzed.slice(0,20).map(r=>{
-    const name = r['Student Name'] || 'Unknown';
-    const text = r['Text ID'] || '';
-    let prompt = '';
-    if(r.autoLevel===1) prompt = 'Ask this student/group to say the answer again without AI wording and point to one phrase in the text.';
-    if(r.autoLevel===2) prompt = 'Ask for one concrete example and one sentence that begins, “In my own words…”';
-    if(r.autoLevel===3) prompt = 'Ask them to connect the textual claim to a responsible bridge statement.';
-    if(r.autoLevel===4) prompt = 'Invite them to present as a model of integrated understanding.';
-    return '<div class="feedback-item"><strong>'+esc(name)+' · '+esc(text)+' · '+r.autoLabel+'</strong><br><span class="mini">'+esc(r.autoReason)+'</span><br>'+esc(prompt)+'</div>';
-  }).join('');
-  el('autoFeedback').innerHTML = '<h3>AI-Assisted Facilitator Feedback</h3>'+feedback;
+function runAutoAnalysis(showEmpty=true){
+ if(!ALL_ROWS.length){if(showEmpty)el('autoSummary').innerHTML='<div class="status">'+UI[LANG].loadFirst+'</div>';return;}
+ AUTO_ANALYSIS=ALL_ROWS.map(r=>{const est=estimateLevelFromText(answerTextForAnalysis(r));return Object.assign({},r,{autoLevel:est.level,autoLabel:est.label,autoReason:est.reason})});
+ const counts=[1,2,3,4].map(l=>AUTO_ANALYSIS.filter(r=>r.autoLevel===l).length); const total=AUTO_ANALYSIS.length||1;
+ el('autoSummary').innerHTML='<div class="analytics-grid">'+[1,2,3,4].map((l,i)=>'<div class="analytics-box"><strong>L'+l+'</strong><br><span class="mini">'+counts[i]+'</span><div class="levelbar"><span style="width:'+Math.round(counts[i]/total*100)+'%"></span></div></div>').join('')+'</div>';
+ const groups={}; AUTO_ANALYSIS.forEach(r=>{const g=String(r['Group']||'No group'); if(!groups[g])groups[g]=[]; groups[g].push(r.autoLevel);});
+ el('groupVisualization').innerHTML='<h3>'+UI[LANG].groupSnapshot+'</h3><table class="table"><tr><th>'+UI[LANG].group+'</th><th>'+UI[LANG].avg+'</th><th>'+UI[LANG].distribution+'</th></tr>'+Object.entries(groups).map(([g,levels])=>{const avg=(levels.reduce((a,b)=>a+b,0)/levels.length).toFixed(1);const dist=[1,2,3,4].map(l=>'L'+l+': '+levels.filter(x=>x===l).length).join(' · ');return'<tr><td>'+esc(g)+'</td><td>'+avg+'</td><td>'+dist+'</td></tr>'}).join('')+'</table>';
+ el('autoFeedback').innerHTML='<h3>'+UI[LANG].feedback+'</h3>'+AUTO_ANALYSIS.slice(0,20).map(r=>'<div class="feedback-item"><strong>'+esc(r['Student Name']||'Unknown')+' · '+esc(r['Text ID']||'')+' · '+r.autoLabel+'</strong><br><span class="mini">'+esc(r.autoReason)+'</span></div>').join('');
 }
-function copyAutoFeedback(){
-  const rows = window.AUTO_ANALYSIS || [];
-  const txt = rows.map(r => [
-    r['Student Name'] || 'Unknown',
-    r['Group'] || 'No group',
-    r['Text ID'] || '',
-    r.autoLabel || '',
-    r.autoReason || ''
-  ].join(' | ')).join('\n');
-  navigator.clipboard.writeText(txt || 'No auto analysis yet.');
-}
+function copyAutoFeedback(){const txt=(AUTO_ANALYSIS||[]).map(r=>[r['Student Name']||'Unknown',r['Group']||'No group',r['Text ID']||'',r.autoLabel||'',r.autoReason||''].join(' | ')).join('\n');navigator.clipboard.writeText(txt||'No auto analysis yet.')}
 
 function downloadSnapshot(){
-  const blob=new Blob([JSON.stringify({loadedAt:new Date().toISOString(), rows:ALL_ROWS, scores:TEXTS.map(t=>({id:t.id,ref:t.ref,scores:getScores(t)}))},null,2)],{type:'application/json'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='UB_W9_Facilitator_Snapshot.json'; a.click();
+ const blob=new Blob([JSON.stringify({loadedAt:new Date().toISOString(),rows:ALL_ROWS,scores:TEXTS.map(t=>({id:t.id,ref:tx(t,'ref','refKo'),scores:getScores(t)}))},null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='UB_W9_Facilitator_Snapshot.json';a.click();
 }
-buildNav(); render(0);
+
+setLang('en');
+el('liveStatus').textContent=UI[LANG].notLoaded;
 </script>
 </body>
 </html>
