@@ -23,6 +23,12 @@ textarea,input,select{width:100%;border:1px solid var(--line);border-radius:12px
 .answer-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.answer-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .status{padding:10px 12px;border-radius:12px;background:var(--soft);margin:10px 0}
 @media(max-width:950px){.wrap{grid-template-columns:1fr}nav{position:relative;top:auto}.grid,.grid4,.two,.answer-body{grid-template-columns:1fr}}
+
+.levelbar{height:14px;background:var(--soft);border-radius:999px;overflow:hidden;margin:6px 0}
+.levelbar span{display:block;height:100%;background:var(--accent2)}
+.analytics-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.analytics-box{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff}
+.feedback-item{border-left:4px solid var(--green);background:#f2f7f4;border-radius:10px;padding:10px 12px;margin:10px 0}
 </style>
 </head>
 <body>
@@ -70,7 +76,7 @@ textarea,input,select{width:100%;border:1px solid var(--line);border-radius:12px
 </main>
 </div>
 <script>
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJ0AZBG5baWYnzw9szIRdn1WZOEE-4frgjWcPS3yLmEvVgZFadEQdUCziSdAxGe61C/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzbKDZDj_GeqGaxseNaXDoOLD3eYogzuzXreOrDfmlawTqGXyjTYo4uUer5RwpD-cGP/exec';
 const TEXTS = [{"day": "Tuesday", "id": "T1", "ref": "Mark 1:1–8", "focus": "Mark 1:1", "theme": "Gospel beginning, wilderness witness, Jesus’ identity, and the opening movement of discipleship.", "tags": ["beginning", "good news", "wilderness", "witness", "identity"], "model": "Mark opens the Gospel through wilderness witness so that readers learn Jesus’ identity through proclamation, preparation, and movement toward the cross.", "aim": "Guide students to see Mark as proclamation, not simple biography: Jesus’ identity is disclosed through wilderness preparation, prophetic witness, and a story moving toward cruciform discipleship.", "exeQ": "How does Mark 1:1 frame the whole Gospel as proclamation of Jesus’ identity rather than merely as a biography of Jesus?", "exeA": "Mark 1:1 functions like a programmatic title: the story is “good news” concerning Jesus Christ, the Son of God. Mark begins with proclamation, Scripture-shaped preparation, and wilderness witness, so the Gospel is an announcement that demands recognition and response.", "herQ": "How does Mark’s wilderness beginning invite us to rethink where true good news begins today?", "herA": "Mark challenges the assumption that good news begins at the center of power. It begins in wilderness space, where false securities are stripped away and a new path is prepared.", "intQ": "How can Mark’s proclamation of Jesus’ identity reshape the way we locate, announce, and embody good news in places that feel like wilderness?", "intA": "Mark teaches that wilderness spaces are not abandoned places but places where God prepares a new beginning, calls people to repentance, and announces Jesus through faithful witness."}, {"day": "Tuesday", "id": "T2", "ref": "Mark 10:35–45", "focus": "Mark 10:45", "theme": "Cruciform discipleship, service, ransom, and reversal of status.", "tags": ["service", "ransom", "greatness", "cross", "reversal"], "model": "Mark redefines greatness through Jesus’ self-giving service so that disciples move from status-seeking to cruciform participation in God’s liberating work.", "aim": "Help students connect the disciples’ ambition with Jesus’ redefinition of power through service and ransom.", "exeQ": "How does Mark 10:45 interpret Jesus’ mission and correct the disciples’ desire for status?", "exeA": "Mark 10:45 presents Jesus as the Son of Man who serves rather than dominates and gives his life as a ransom for many. His mission corrects the disciples’ honor-seeking by making costly service the pattern of discipleship.", "herQ": "How does Jesus’ definition of greatness challenge modern systems of power, success, and leadership?", "herA": "The passage challenges success built on visibility, control, privilege, and hierarchy. It calls communities to evaluate leadership by whether it serves and liberates others.", "intQ": "How should Jesus’ self-giving service reshape Christian practice in classrooms, churches, and public life?", "intA": "Christian practice should move from status protection to concrete service: listening before leading, using authority to restore others, and measuring formation by who is dignified through our action."}, {"day": "Tuesday", "id": "T3", "ref": "Matthew 1:1–17", "focus": "Genealogy", "theme": "Genealogy, Israel’s story, fulfillment, and covenant memory.", "tags": ["genealogy", "Abraham", "David", "exile", "fulfillment"], "model": "Matthew begins with genealogy to locate Jesus within Israel’s covenant memory while showing that God’s promise moves through surprising people, broken history, and restored hope.", "aim": "Guide students to read genealogy as theological narrative, not background data.", "exeQ": "How does Matthew’s genealogy frame Jesus within Israel’s covenant story?", "exeA": "Matthew identifies Jesus as Messiah, son of David, son of Abraham. The genealogy structures Israel’s story through Abraham, David, exile, and Messiah, presenting Jesus as covenant fulfillment and royal hope.", "herQ": "How does Matthew’s genealogy challenge modern assumptions about worth, purity, and belonging?", "herA": "The genealogy resists sanitized identity. God’s redemptive history includes outsiders, morally complex stories, women whose presence disrupts control, and memories of exile.", "intQ": "How can covenant memory form communities that remember honestly and welcome faithfully?", "intA": "Matthew invites communities to remember histories truthfully, including rupture and shame, while trusting that God forms belonging through promise, mercy, and restored vocation."}, {"day": "Tuesday", "id": "T4", "ref": "Matthew 5:1–12", "focus": "Beatitudes", "theme": "Kingdom righteousness, blessing, formation, mercy, and peacemaking.", "tags": ["blessing", "kingdom", "righteousness", "mercy", "peace"], "model": "Matthew’s Beatitudes announce the kingdom’s blessing upon those formed by humility, mercy, righteousness, and peacemaking, thereby redefining the shape of covenant life.", "aim": "Move students away from reading the Beatitudes as abstract virtues only and toward kingdom formation.", "exeQ": "How do the Beatitudes describe the people formed by the kingdom of heaven?", "exeA": "The Beatitudes name those poor in spirit, mourning, hungering for righteousness, showing mercy, making peace, and enduring persecution. Together they portray a community shaped by God’s reign and covenant righteousness.", "herQ": "How do the Beatitudes disrupt modern ideas of happiness, success, and strength?", "herA": "They reverse assumptions that blessing belongs to the powerful, comfortable, admired, or self-secure. Jesus names as blessed those open to God and oriented toward righteousness.", "intQ": "How can the Beatitudes reshape formation in Christian education and community life?", "intA": "They call communities to form people not merely for achievement but for mercy, peacemaking, justice-seeking, humility, and endurance under pressure."}, {"day": "Tuesday", "id": "T5", "ref": "Matthew 28:16–20", "focus": "Great Commission", "theme": "Mission, teaching, authority, all nations, and Jesus’ abiding presence.", "tags": ["mission", "discipleship", "authority", "nations", "presence"], "model": "Matthew concludes with Jesus’ universal authority and abiding presence so that discipleship becomes a teaching mission among all nations.", "aim": "Help students see mission as disciple-making obedience under Jesus’ presence, not expansion alone.", "exeQ": "How does Matthew 28:16–20 conclude Matthew’s Gospel and define the church’s mission?", "exeA": "The risen Jesus claims all authority, sends disciples to all nations, commands baptism and teaching, and promises his presence. The conclusion gathers Emmanuel, kingdom authority, obedience, and mission.", "herQ": "How does this commission correct modern distortions of mission?", "herA": "It corrects mission as conquest, branding, or numerical expansion. The task is disciple-making through teaching obedience to Jesus under his authority and presence.", "intQ": "How should Jesus’ authority and presence shape teaching, mission, and formation today?", "intA": "Mission should form learners who embody Jesus’ teaching, cross cultural boundaries responsibly, and depend on Christ’s abiding presence rather than institutional control."}, {"day": "Friday", "id": "F1", "ref": "Luke 4:16–21", "focus": "Nazareth sermon", "theme": "Spirit, release, reversal, restoration, and mission to the margins.", "tags": ["Spirit", "release", "poor", "captives", "today"], "model": "Luke presents Jesus’ Spirit-anointed mission as release and restoration for the marginalized, making salvation visible as embodied liberation and renewed belonging.", "aim": "Guide students to read Luke’s salvation as concrete, social, relational, and Spirit-led.", "exeQ": "How does Luke 4:16–21 define Jesus’ mission at the beginning of his public ministry?", "exeA": "Jesus reads Isaiah as fulfilled today in his ministry. The Spirit-anointed mission brings good news to the poor, release to captives, sight to the blind, freedom to the oppressed, and the Lord’s favor.", "herQ": "How does Luke’s vision of release challenge spiritualized or individualistic readings of salvation?", "herA": "Luke does not separate spiritual renewal from embodied restoration. Salvation appears as release, healing, restored perception, and renewed social belonging.", "intQ": "How can Luke 4 reshape the church’s understanding of gospel proclamation and social responsibility?", "intA": "The church proclaims faithfully when its words and practices participate in Jesus’ Spirit-led release: restoring dignity, challenging oppression, and creating belonging for the marginalized."}, {"day": "Friday", "id": "F2", "ref": "Luke 15:11–32", "focus": "Lost sons", "theme": "Mercy, return, resentment, restored belonging, and shared joy.", "tags": ["mercy", "return", "resentment", "belonging", "joy"], "model": "Luke’s parable of the two sons reveals divine mercy as restored belonging while exposing resentment that refuses to rejoice in another’s return.", "aim": "Help students see both sons as lost in different ways and the father as the center of restored kinship.", "exeQ": "How does Luke 15:11–32 portray lostness, return, and restored belonging?", "exeA": "The younger son is lost through leaving and squandering; the older son is lost through resentment and refusal to enter joy. The father restores the younger and pleads with the older.", "herQ": "How does this parable expose resentment within religious communities?", "herA": "It reveals how communities can obey externally while refusing mercy. Resentment appears when another person’s restoration feels like a threat.", "intQ": "How should this parable reshape practices of repentance, welcome, and communal joy?", "intA": "Communities should practice repentance as return, welcome as restored dignity, and joy as shared participation in mercy rather than competition over worthiness."}, {"day": "Friday", "id": "F3", "ref": "John 1:1–18", "focus": "Prologue", "theme": "Logos, incarnation, light, witness, dwelling, glory, and life.", "tags": ["Logos", "incarnation", "light", "dwelling", "glory"], "model": "John’s prologue presents the incarnate Logos as God’s life and light dwelling among humanity so that witness leads readers into grace-filled recognition.", "aim": "Help students hold together high Christology and embodied incarnation.", "exeQ": "How does John 1:1–18 introduce Jesus’ identity and mission?", "exeA": "John identifies Jesus as the preexistent Logos who is with God and is God, through whom life and light come. The Logos becomes flesh and dwells among us, revealing glory, grace, and truth.", "herQ": "How does the incarnation challenge abstract or disembodied views of faith?", "herA": "The Word becomes flesh, so faith cannot remain abstract, detached, or merely conceptual. God’s revelation takes bodily, relational, and historical form.", "intQ": "How can John’s Logos theology shape learning, witness, and community formation?", "intA": "Learning and witness should move from abstract claims to embodied presence: receiving light, practicing truthful grace, and becoming communities where God’s life is visible."}, {"day": "Friday", "id": "F4", "ref": "John 13:1–17, 34–35", "focus": "Footwashing and love command", "theme": "Love, service, embodied humility, mutual recognition, and community identity.", "tags": ["love", "service", "humility", "footwashing", "identity"], "model": "John portrays Jesus’ love through embodied humility so that the community’s identity becomes recognizable through mutual service and self-giving love.", "aim": "Guide students to see love as enacted service that reveals communal identity.", "exeQ": "How does John 13 define Jesus’ love and the disciples’ identity?", "exeA": "Jesus loves to the end by washing his disciples’ feet, taking the servant’s role before the cross. The community is recognized not by status markers but by embodied mutual love.", "herQ": "How does footwashing challenge modern Christian identity markers?", "herA": "It challenges identity based on reputation, doctrinal performance, charisma, or institutional power. John centers humble service as the visible mark of belonging to Jesus.", "intQ": "How should Jesus’ embodied humility reshape leadership and community practice?", "intA": "Leadership should take the lower place, perform concrete acts of service, and create communities where mutual care becomes the public sign of discipleship."}, {"day": "Friday", "id": "F5", "ref": "John 20:30–31", "focus": "Purpose statement", "theme": "Belief, life, written witness, signs, and reader response.", "tags": ["belief", "life", "signs", "witness", "reader"], "model": "John writes selected signs so that readers may believe Jesus is the Messiah, the Son of God, and receive life in his name.", "aim": "Help students understand John as written witness designed for reader transformation.", "exeQ": "How does John 20:30–31 explain the purpose of the Gospel?", "exeA": "John states that many signs were not written, but these were written so readers may believe Jesus is the Messiah, the Son of God, and have life in his name.", "herQ": "How does John’s purpose statement challenge passive reading of Scripture?", "herA": "John expects readers to respond. Scripture is not merely information storage; it is written witness that calls for recognition, trust, and participation in life.", "intQ": "How can John’s written witness shape the way students read, teach, and embody Scripture?", "intA": "Students should read Scripture as testimony that invites response, teach it toward life-giving recognition of Jesus, and embody its witness through practices that make life visible."}];
 
 let LANG = 'en';
@@ -241,6 +247,98 @@ function toggleAutoRefresh(){
   if(autoTimer){clearInterval(autoTimer);autoTimer=null;el('liveStatus').textContent='Auto refresh off.';}
   else{autoTimer=setInterval(loadSubmissions,30000);el('liveStatus').textContent='Auto refresh on: every 30 seconds.';loadSubmissions();}
 }
+
+function answerTextForAnalysis(r){
+  return [
+    r['Exegetical Answer'] || '',
+    r['Hermeneutical Answer'] || '',
+    r['Integrated Claim'] || '',
+    r['Group A'] || '',
+    r['Group B'] || '',
+    r['Praxis Act'] || '',
+    r['Final No Longer'] || '',
+    r['Final Must Live'] || ''
+  ].join(' ').trim();
+}
+function estimateLevelFromText(text){
+  const t = String(text || '').trim();
+  const lower = t.toLowerCase();
+  const words = t.split(/\s+/).filter(Boolean);
+  if(words.length < 12) return {level:1, label:'L1 Copy/Data or Too Thin', reason:'Very short or too undeveloped to show owned understanding.'};
+
+  const aiLike = ['moreover','furthermore','therefore','in conclusion','signifies','underscores','highlights','emphasizes','paradigm','framework','multifaceted','holistic','transformative','embodies','reorients','reconfiguration'].filter(w => lower.includes(w)).length;
+  const personal = ['i think','i understand','in my words','for example','in our group','we think','내 생각','제가 이해','우리 조','예를 들어','제 말로','우리 생각'].filter(w => lower.includes(w)).length;
+  const textMarkers = ['verse','word','mark','matthew','luke','john','jesus','disciples','father','본문','구절','마가','마태','누가','요한','예수','제자','아버지'].filter(w => lower.includes(w)).length;
+  const practiceMarkers = ['today','classroom','church','community','practice','act','live','toward','오늘','교실','교회','공동체','실천','행동','살아','향해'].filter(w => lower.includes(w)).length;
+
+  if(words.length > 45 && textMarkers >= 1 && practiceMarkers >= 1 && personal >= 1){
+    return {level:4, label:'L4 Integrate/Formation', reason:'Connects text, interpretation, own language, and practice.'};
+  }
+  if(words.length > 30 && (personal >= 1 || textMarkers >= 2) && aiLike <= 4){
+    return {level:3, label:'L3 Reframe/Interpretive Movement', reason:'Shows re-voicing with some own logic or textual grounding.'};
+  }
+  if(words.length > 20 && aiLike <= 6){
+    return {level:2, label:'L2 Paraphrase/Surface Understanding', reason:'Some wording shift is present, but ownership is still limited.'};
+  }
+  return {level:1, label:'L1 Copy/Data Possession', reason:'Likely copied, too polished, too generic, or not sufficiently re-voiced.'};
+}
+function runAutoAnalysis(){
+  const rows = ALL_ROWS || [];
+  if(!rows.length){
+    el('autoSummary').innerHTML = '<div class="status">Load student answers first.</div>';
+    return;
+  }
+  const analyzed = rows.map(r => {
+    const est = estimateLevelFromText(answerTextForAnalysis(r));
+    return Object.assign({}, r, {autoLevel: est.level, autoLabel: est.label, autoReason: est.reason});
+  });
+  window.AUTO_ANALYSIS = analyzed;
+
+  const counts = [1,2,3,4].map(l => analyzed.filter(r => r.autoLevel===l).length);
+  const total = analyzed.length || 1;
+  el('autoSummary').innerHTML =
+    '<div class="analytics-grid">'+[1,2,3,4].map((l,i)=>
+      '<div class="analytics-box"><strong>L'+l+'</strong><br><span class="mini">'+counts[i]+' responses</span><div class="levelbar"><span style="width:'+Math.round(counts[i]/total*100)+'%"></span></div></div>'
+    ).join('')+'</div>';
+
+  const groups = {};
+  analyzed.forEach(r=>{
+    const g = String(r['Group'] || 'No group');
+    if(!groups[g]) groups[g] = [];
+    groups[g].push(r.autoLevel);
+  });
+  el('groupVisualization').innerHTML =
+    '<h3>Group Understanding Snapshot</h3><table class="table"><tr><th>Group</th><th>Average Level</th><th>Distribution</th></tr>'+
+    Object.entries(groups).map(([g,levels])=>{
+      const avg = (levels.reduce((a,b)=>a+b,0)/levels.length).toFixed(1);
+      const dist = [1,2,3,4].map(l=>'L'+l+': '+levels.filter(x=>x===l).length).join(' · ');
+      return '<tr><td>'+esc(g)+'</td><td>'+avg+'</td><td>'+dist+'</td></tr>';
+    }).join('')+'</table>';
+
+  const feedback = analyzed.slice(0,20).map(r=>{
+    const name = r['Student Name'] || 'Unknown';
+    const text = r['Text ID'] || '';
+    let prompt = '';
+    if(r.autoLevel===1) prompt = 'Ask this student/group to say the answer again without AI wording and point to one phrase in the text.';
+    if(r.autoLevel===2) prompt = 'Ask for one concrete example and one sentence that begins, “In my own words…”';
+    if(r.autoLevel===3) prompt = 'Ask them to connect the textual claim to a responsible bridge statement.';
+    if(r.autoLevel===4) prompt = 'Invite them to present as a model of integrated understanding.';
+    return '<div class="feedback-item"><strong>'+esc(name)+' · '+esc(text)+' · '+r.autoLabel+'</strong><br><span class="mini">'+esc(r.autoReason)+'</span><br>'+esc(prompt)+'</div>';
+  }).join('');
+  el('autoFeedback').innerHTML = '<h3>AI-Assisted Facilitator Feedback</h3>'+feedback;
+}
+function copyAutoFeedback(){
+  const rows = window.AUTO_ANALYSIS || [];
+  const txt = rows.map(r => [
+    r['Student Name'] || 'Unknown',
+    r['Group'] || 'No group',
+    r['Text ID'] || '',
+    r.autoLabel || '',
+    r.autoReason || ''
+  ].join(' | ')).join('\n');
+  navigator.clipboard.writeText(txt || 'No auto analysis yet.');
+}
+
 function downloadSnapshot(){
   const blob=new Blob([JSON.stringify({loadedAt:new Date().toISOString(), rows:ALL_ROWS, scores:TEXTS.map(t=>({id:t.id,ref:t.ref,scores:getScores(t)}))},null,2)],{type:'application/json'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='UB_W9_Facilitator_Snapshot.json'; a.click();
